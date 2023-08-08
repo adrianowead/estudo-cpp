@@ -8,7 +8,7 @@ int main () {
     cout << "* Bem-Vindos ao jogo da advinhação! *" << endl;
     cout << "*************************************" << endl;
 
-    int numero_secreto = 42;
+    const int NUMERO_SECRETO = 42;
 
     int chute;
     cout << "Qual é o seu chute? " << endl;
@@ -16,9 +16,12 @@ int main () {
 
     cout << "O valor do seu chute é " << chute << endl;
 
-    if(chute == numero_secreto) {
+    bool acertou = chute == NUMERO_SECRETO;
+    bool maior = chute > NUMERO_SECRETO;
+
+    if(acertou) {
         cout << "Parabéns! Você acertou o número secreto!" << endl;
-    } else if(chute > numero_secreto) {
+    } else if(maior) {
         cout << "Seu chute foi maior que o número secreto!" << endl;
     } else {
         cout << "Seu chute foi menor que o número secreto!" << endl;
