@@ -3,10 +3,32 @@
 
 using namespace std;
 
-int main () {
+int main()
+{
     cout << "*************************************" << endl;
     cout << "* Bem-Vindos ao jogo da advinhação! *" << endl;
     cout << "*************************************" << endl;
+
+    cout << "Escolha o seu nível de dificuldade: " << endl;
+    cout << "Fábil(F), Médio(M), Difícil(D)" << endl;
+
+    char dificuldade;
+    cin >> dificuldade;
+
+    int numero_de_tentativas;
+
+    if (dificuldade == 'F')
+    {
+        numero_de_tentativas = 15;
+    }
+    else if (dificuldade == 'M')
+    {
+        numero_de_tentativas = 10;
+    }
+    else
+    {
+        numero_de_tentativas = 5;
+    }
 
     const int NUMERO_SECRETO = 42;
 
@@ -15,9 +37,8 @@ int main () {
 
     double pontos = 1000.0;
 
-    while(nao_acertou) {
-        tentativas++;
-
+    for (tentativas = 1; tentativas <= numero_de_tentativas; tentativas++)
+    {
         cout << "Tentativa: " << tentativas << endl;
 
         int chute;
@@ -32,21 +53,35 @@ int main () {
         bool acertou = chute == NUMERO_SECRETO;
         bool maior = chute > NUMERO_SECRETO;
 
-        if(acertou) {
+        if (acertou)
+        {
             cout << "Parabéns! Você acertou o número secreto!" << endl;
             nao_acertou = false;
-        } else if(maior) {
+            break;
+        }
+        else if (maior)
+        {
             cout << "Seu chute foi maior que o número secreto!" << endl;
-        } else {
+        }
+        else
+        {
             cout << "Seu chute foi menor que o número secreto!" << endl;
         }
     }
 
     cout << "Fim de jogo!" << endl;
-    cout << "Você acertou o número secreto em: " << endl;
-    cout << tentativas << " tentativas." << endl;
 
-    cout.precision(2);
-    cout << fixed;
-    cout << "Sua pontuação foi de: " << pontos << endl;
+    if (nao_acertou)
+    {
+        cout << "Você perdeu! Tente novamente!" << endl;
+    }
+    else
+    {
+        cout << "Você acertou o número secreto em: " << endl;
+        cout << tentativas << " tentativas." << endl;
+
+        cout.precision(2);
+        cout << fixed;
+        cout << "Sua pontuação foi de: " << pontos << endl;
+    }
 }
