@@ -1,8 +1,8 @@
-#include <iostream>
-#include "nao_acertou.cpp"
-#include "adicionar_palavra.cpp"
+#include "encerramento.hpp"
+#include "nao_acertou.hpp"
+#include "adicionar_palavra.hpp"
 
-std::string palavra_secreta;
+extern std::string palavra_secreta;
 
 void encerramento()
 {

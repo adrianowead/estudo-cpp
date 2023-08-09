@@ -1,8 +1,7 @@
-#include <string>
-#include <map>
+#include "nao_acertou.hpp"
 
-std::string palavra_secreta;
-std::map<char, bool> ja_chutou;
+extern std::string palavra_secreta;
+extern std::map<char, bool> ja_chutou;
 
 bool nao_acertou()
 {

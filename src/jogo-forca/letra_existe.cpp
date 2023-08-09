@@ -1,6 +1,6 @@
-#include <string>
+#include "letra_existe.hpp"
 
-std::string palavra_secreta;
+extern std::string palavra_secreta;
 
 bool letra_existe(char chute)
 {

@@ -1,7 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <fstream>
+#include "ler_arquivo.hpp"
 
 std::vector<std::string> ler_arquivo()
 {

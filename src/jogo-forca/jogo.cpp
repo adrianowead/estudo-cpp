@@ -5,14 +5,14 @@
 #include <fstream>
 #include <ctime>
 #include <cstdlib>
-#include "nao_acertou.cpp"
-#include "nao_enforcou.cpp"
-#include "bem_vindo.cpp"
-#include "pede_chute.cpp"
-#include "mostrar_placeholders.cpp"
-#include "mostrar_chutes_errados.cpp"
-#include "sorteia_palavra.cpp"
-#include "encerramento.cpp"
+#include "bem_vindo.hpp"
+#include "sorteia_palavra.hpp"
+#include "nao_acertou.hpp"
+#include "nao_enforcou.hpp"
+#include "mostrar_chutes_errados.hpp"
+#include "mostrar_placeholders.hpp"
+#include "pede_chute.hpp"
+#include "encerramento.hpp"
 
 using namespace std;
 

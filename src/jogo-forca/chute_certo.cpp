@@ -1,8 +1,7 @@
-#include <iostream>
-#include <vector>
-#include "letra_existe.cpp"
+#include "chute_certo.hpp"
+#include "letra_existe.hpp"
 
-std::vector<char> chutes_errados;
+extern std::vector<char> chutes_errados;
 
 void chuteCerto(char chute)
 {

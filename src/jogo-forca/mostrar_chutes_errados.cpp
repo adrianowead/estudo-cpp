@@ -1,7 +1,6 @@
-#include <iostream>
-#include <vector>
+#include "mostrar_chutes_errados.hpp"
 
-std::vector<char> chutes_errados;
+extern std::vector<char> chutes_errados;
 
 void mostraChutesErrados()
 {

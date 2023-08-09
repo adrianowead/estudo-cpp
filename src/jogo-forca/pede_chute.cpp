@@ -1,8 +1,7 @@
-#include <iostream>
-#include <map>
-#include "chute_certo.cpp"
+#include "pede_chute.hpp"
+#include "chute_certo.hpp"
 
-std::map<char, bool> ja_chutou;
+extern std::map<char, bool> ja_chutou;
 
 void pedeChute()
 {

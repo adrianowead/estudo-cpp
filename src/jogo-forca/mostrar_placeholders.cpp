@@ -1,9 +1,7 @@
-#include <iostream>
-#include <string>
-#include <map>
+#include "mostrar_placeholders.hpp"
 
-std::string palavra_secreta;
-std::map<char, bool> ja_chutou;
+extern std::string palavra_secreta;
+extern std::map<char, bool> ja_chutou;
 
 void mostraPlaceholders()
 {
