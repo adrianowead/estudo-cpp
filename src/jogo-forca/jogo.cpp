@@ -2,6 +2,7 @@
 #include <string>
 #include <map>
 #include <vector>
+#include <fstream>
 
 using namespace std;
 
@@ -125,9 +126,26 @@ void mostraChutesErrados()
     }
 }
 
+void ler_arquivo()
+{
+    ifstream arquivo;
+    arquivo.open("palavras.txt");
+
+    int quantidade_palavras;
+    arquivo >> quantidade_palavras;
+
+    for (int i = 0; i < quantidade_palavras; i++)
+    {
+        string palavra_lida;
+        arquivo >> palavra_lida;
+    }
+}
+
 int main()
 {
     bemVindo();
+
+    ler_arquivo();
 
     while (nao_acertou() && nao_enforcou())
     {
