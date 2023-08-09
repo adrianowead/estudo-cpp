@@ -79,6 +79,8 @@ int main()
         char chute;
         cin >> chute;
 
+        chute = toupper(chute);
+
         ja_chutou[chute] = true;
 
         if (letra_existe(chute))
@@ -93,5 +95,15 @@ int main()
         }
 
         cout << endl;
+    }
+
+    cout << "Fim de jogo!" << endl;
+    cout << endl;
+
+    if(nao_acertou()) {
+        cout << "Você perdeu! Tente novamente!" << endl;
+        cout << "A palavra secreta era: " << PALAVRA_SECRETA << endl;
+    } else {
+        cout << "Parabéns! Você acertou a palavra secreta!" << endl;
     }
 }
