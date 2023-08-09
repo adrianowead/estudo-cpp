@@ -140,15 +140,27 @@ vector<string> ler_arquivo()
         int quantidade_palavras;
         arquivo >> quantidade_palavras;
 
-        for (int i = 0; i < quantidade_palavras; i++)
+        if (quantidade_palavras > 0)
         {
-            string palavra_lida;
-            arquivo >> palavra_lida;
+            for (int i = 0; i < quantidade_palavras; i++)
+            {
+                string palavra_lida;
+                arquivo >> palavra_lida;
 
-            palavras_arquivo.push_back(palavra_lida);
+                if (palavra_lida.length() > 1)
+                {
+                    palavras_arquivo.push_back(palavra_lida);
+                }
+            }
         }
 
         arquivo.close();
+
+        if (palavras_arquivo.size() < 1)
+        {
+            cout << "Sem palavras no banco para sorteio." << endl;
+            exit(2);
+        }
 
         return palavras_arquivo;
     }
@@ -164,7 +176,7 @@ void sorteia_palavra()
     vector<string> palavras = ler_arquivo();
 
     srand(time(NULL));
-    int indice_aleadorio = rand() % (palavras.size() - 1);
+    int indice_aleadorio = rand() % palavras.size();
 
     palavra_secreta = palavras[indice_aleadorio];
 }
