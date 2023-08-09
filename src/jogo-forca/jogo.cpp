@@ -52,22 +52,6 @@ void bemVindo()
     cout << endl;
 }
 
-void encerramento()
-{
-    cout << "Fim de jogo!" << endl;
-    cout << endl;
-
-    if (nao_acertou())
-    {
-        cout << "Você perdeu! Tente novamente!" << endl;
-        cout << "A palavra secreta era: " << palavra_secreta << endl;
-    }
-    else
-    {
-        cout << "Parabéns! Você acertou a palavra secreta!" << endl;
-    }
-}
-
 void chuteCerto(char chute)
 {
     if (letra_existe(chute))
@@ -171,6 +155,29 @@ vector<string> ler_arquivo()
     }
 }
 
+void salvarArquivo(vector<string> nova_lista)
+{
+    ofstream arquivo;
+    arquivo.open("palavras.txt");
+
+    if (arquivo.is_open())
+    {
+        arquivo << nova_lista.size() << endl;
+
+        for (string palavra : nova_lista)
+        {
+            arquivo << palavra << endl;
+        }
+
+        arquivo.close();
+    }
+    else
+    {
+        cout << "Não foi possível acessar o banco de palavras!" << endl;
+        exit(1);
+    }
+}
+
 void sorteia_palavra()
 {
     vector<string> palavras = ler_arquivo();
@@ -179,6 +186,51 @@ void sorteia_palavra()
     int indice_aleadorio = rand() % palavras.size();
 
     palavra_secreta = palavras[indice_aleadorio];
+}
+
+void adicionarPalavra()
+{
+    cout << "Digite a nova palavra, evite caracteres especiais:" << endl;
+
+    string nova_palavra;
+    cin >> nova_palavra;
+
+    for (int i = 0; i < nova_palavra.size(); i++)
+    {
+        nova_palavra[i] = toupper(nova_palavra[i]);
+    }
+
+    vector<string> lista_palavras = ler_arquivo();
+    lista_palavras.push_back(nova_palavra);
+
+    salvarArquivo(lista_palavras);
+}
+
+void encerramento()
+{
+    cout << "Fim de jogo!" << endl;
+    cout << endl;
+
+    if (nao_acertou())
+    {
+        cout << "Você perdeu! Tente novamente!" << endl;
+        cout << "A palavra secreta era: " << palavra_secreta << endl;
+    }
+    else
+    {
+        cout << "Parabéns! Você acertou a palavra secreta!" << endl;
+
+        cout << "Você deseja adicionar uma palavra nova ao banco? (S/N)" << endl;
+
+        char resposta;
+        cin >> resposta;
+        resposta = toupper(resposta);
+
+        if (resposta == 'S')
+        {
+            adicionarPalavra();
+        }
+    }
 }
 
 int main()
