@@ -41,69 +41,102 @@ bool nao_enforcou()
     return chutes_errados.size() < 5;
 }
 
-int main()
+void bemVindo()
 {
     cout << "+-----------------------------+" << endl;
     cout << "| Bem-Vindo ao Jogo da Forca! |" << endl;
     cout << "+-----------------------------+" << endl;
     cout << endl;
+}
 
-    while (nao_acertou() && nao_enforcou())
-    {
-        if (chutes_errados.size() > 0)
-        {
-            cout << "Chutes errados: ";
-
-            for (char letra : chutes_errados)
-            {
-                cout << letra << " ";
-            }
-
-            cout << endl;
-        }
-
-        for (char letra : PALAVRA_SECRETA)
-        {
-            if (ja_chutou[letra])
-            {
-                cout << letra << " ";
-            }
-            else
-            {
-                cout << "_ ";
-            }
-        }
-
-        cout << endl;
-        cout << "Seu chute:" << endl;
-        char chute;
-        cin >> chute;
-
-        chute = toupper(chute);
-
-        ja_chutou[chute] = true;
-
-        if (letra_existe(chute))
-        {
-            cout << "Você acertou! Seu chute está na palavra." << endl;
-        }
-        else
-        {
-            cout << "Você errou! Seu chute não está na palavra." << endl;
-
-            chutes_errados.push_back(chute);
-        }
-
-        cout << endl;
-    }
-
+void encerramento()
+{
     cout << "Fim de jogo!" << endl;
     cout << endl;
 
-    if(nao_acertou()) {
+    if (nao_acertou())
+    {
         cout << "Você perdeu! Tente novamente!" << endl;
         cout << "A palavra secreta era: " << PALAVRA_SECRETA << endl;
-    } else {
+    }
+    else
+    {
         cout << "Parabéns! Você acertou a palavra secreta!" << endl;
     }
+}
+
+void chuteCerto(char chute)
+{
+    if (letra_existe(chute))
+    {
+        cout << "Você acertou! Seu chute está na palavra." << endl;
+    }
+    else
+    {
+        cout << "Você errou! Seu chute não está na palavra." << endl;
+
+        chutes_errados.push_back(chute);
+    }
+
+    cout << endl;
+}
+
+void pedeChute()
+{
+    cout << endl;
+    cout << "Seu chute:" << endl;
+    char chute;
+    cin >> chute;
+
+    chute = toupper(chute);
+
+    ja_chutou[chute] = true;
+
+    chuteCerto(chute);
+}
+
+void mostraPlaceholders()
+{
+    for (char letra : PALAVRA_SECRETA)
+    {
+        if (ja_chutou[letra])
+        {
+            cout << letra << " ";
+        }
+        else
+        {
+            cout << "_ ";
+        }
+    }
+}
+
+void mostraChutesErrados()
+{
+    if (chutes_errados.size() > 0)
+    {
+        cout << "Chutes errados: ";
+
+        for (char letra : chutes_errados)
+        {
+            cout << letra << " ";
+        }
+
+        cout << endl;
+    }
+}
+
+int main()
+{
+    bemVindo();
+
+    while (nao_acertou() && nao_enforcou())
+    {
+        mostraChutesErrados();
+
+        mostraPlaceholders();
+
+        pedeChute();
+    }
+
+    encerramento();
 }
