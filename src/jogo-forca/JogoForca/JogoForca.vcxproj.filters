@@ -18,9 +18,6 @@
     <ClCompile Include="adicionar_palavra.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="bem_vindo.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
     <ClCompile Include="chute_certo.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>

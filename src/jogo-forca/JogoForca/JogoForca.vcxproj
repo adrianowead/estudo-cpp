@@ -128,7 +128,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="adicionar_palavra.cpp" />
-    <ClCompile Include="bem_vindo.cpp" />
     <ClCompile Include="chute_certo.cpp" />
     <ClCompile Include="encerramento.cpp" />
     <ClCompile Include="jogo.cpp" />
