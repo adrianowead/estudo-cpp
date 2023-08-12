@@ -3,7 +3,6 @@
 #include "bem_vindo.hpp"
 #include "sorteia_palavra.hpp"
 #include "nao_acertou.hpp"
-#include "nao_enforcou.hpp"
 #include "mostrar_chutes_errados.hpp"
 #include "mostrar_placeholders.hpp"
 #include "pede_chute.hpp"
@@ -20,16 +19,16 @@ int main()
 {
     bemVindo();
 
-    sorteia_palavra();
+    palavra_secreta = sorteia_palavra();
 
-    while (nao_acertou() && nao_enforcou())
+    while (nao_acertou(palavra_secreta, ja_chutou) && chutes_errados.size() < 5)
     {
-        mostraChutesErrados();
+        mostraChutesErrados(chutes_errados);
 
-        mostraPlaceholders();
+        mostraPlaceholders(palavra_secreta, ja_chutou);
 
-        pedeChute();
+        pedeChute(&ja_chutou, chutes_errados, palavra_secreta);
     }
 
-    encerramento();
+    encerramento(palavra_secreta, ja_chutou);
 }

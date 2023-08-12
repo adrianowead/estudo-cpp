@@ -136,7 +136,6 @@
     <ClCompile Include="mostrar_chutes_errados.cpp" />
     <ClCompile Include="mostrar_placeholders.cpp" />
     <ClCompile Include="nao_acertou.cpp" />
-    <ClCompile Include="nao_enforcou.cpp" />
     <ClCompile Include="pede_chute.cpp" />
     <ClCompile Include="salvar_arquivo.cpp" />
     <ClCompile Include="sorteia_palavra.cpp" />
@@ -151,7 +150,6 @@
     <ClInclude Include="mostrar_chutes_errados.hpp" />
     <ClInclude Include="mostrar_placeholders.hpp" />
     <ClInclude Include="nao_acertou.hpp" />
-    <ClInclude Include="nao_enforcou.hpp" />
     <ClInclude Include="pede_chute.hpp" />
     <ClInclude Include="salvar_arquivo.hpp" />
     <ClInclude Include="sorteia_palavra.hpp" />

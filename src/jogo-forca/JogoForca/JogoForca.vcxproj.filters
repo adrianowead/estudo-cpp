@@ -42,9 +42,6 @@
     <ClCompile Include="nao_acertou.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="nao_enforcou.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
     <ClCompile Include="pede_chute.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
@@ -81,9 +78,6 @@
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
     <ClInclude Include="nao_acertou.hpp">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="nao_enforcou.hpp">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
     <ClInclude Include="pede_chute.hpp">

@@ -1,8 +1,6 @@
 #include "nao_enforcou.hpp"
 
-extern std::vector<char> chutes_errados;
-
-bool nao_enforcou()
+bool nao_enforcou(std::vector<char> chutes_errados)
 {
     return chutes_errados.size() < 5;
 }

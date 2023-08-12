@@ -2,4 +2,4 @@
 #include <iostream>
 #include <vector>
 
-void mostraChutesErrados();
+void mostraChutesErrados(std::vector<char> chutes_errados);
