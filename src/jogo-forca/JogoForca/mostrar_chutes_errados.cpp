@@ -1,6 +1,6 @@
 #include "mostrar_chutes_errados.hpp"
 
-void mostraChutesErrados(std::vector<char> chutes_errados)
+void mostraChutesErrados(std::vector<char>& chutes_errados)
 {
     if (chutes_errados.size() > 0)
     {

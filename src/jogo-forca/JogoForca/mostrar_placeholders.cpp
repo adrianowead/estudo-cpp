@@ -1,6 +1,6 @@
 #include "mostrar_placeholders.hpp"
 
-void mostraPlaceholders(std::string palavra_secreta, std::map<char, bool> ja_chutou)
+void mostraPlaceholders(std::string& palavra_secreta, std::map<char, bool>& ja_chutou)
 {
     for (char letra : palavra_secreta)
     {

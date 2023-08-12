@@ -2,7 +2,7 @@
 #include "nao_acertou.hpp"
 #include "adicionar_palavra.hpp"
 
-void encerramento(std::string palavra_secreta, std::map<char, bool> ja_chutou)
+void encerramento(std::string& palavra_secreta, std::map<char, bool>& ja_chutou)
 {
     std::cout << "Fim de jogo!" << std::endl;
     std::cout << std::endl;
