@@ -17,5 +17,5 @@ void  Forca::adicionar_palavra()
     std::vector<std::string> lista_palavras = Forca::ler_arquivo();
     lista_palavras.push_back(nova_palavra);
 
-     Forca::salvar_arquivo(lista_palavras);
+    Forca::salvar_arquivo(lista_palavras);
 }

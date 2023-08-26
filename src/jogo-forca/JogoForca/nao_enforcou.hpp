@@ -1,6 +1,6 @@
 #pragma once
-#include <vector>
+#include <array>
 
 namespace Forca{
-    bool nao_enforcou(std::vector<char> chutes_errados);
+    bool nao_enforcou(std::array<char, 5> chutes_errados);
 }
