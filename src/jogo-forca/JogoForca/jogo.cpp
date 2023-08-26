@@ -10,10 +10,10 @@
 
 using namespace std;
 
-string palavra_secreta;
+static string palavra_secreta;
 
-map<char, bool> ja_chutou;
-vector<char> chutes_errados;
+static map<char, bool> ja_chutou;
+static vector<char> chutes_errados;
 
 int main()
 {
