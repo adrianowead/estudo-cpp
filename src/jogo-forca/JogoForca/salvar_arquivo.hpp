@@ -4,4 +4,4 @@
 #include <string>
 #include <fstream>
 
-void salvarArquivo(std::vector<std::string> nova_lista);
+void salvar_arquivo(std::vector<std::string> nova_lista);

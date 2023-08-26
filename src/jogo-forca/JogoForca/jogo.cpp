@@ -17,17 +17,17 @@ static vector<char> chutes_errados;
 
 int main()
 {
-    bemVindo();
+    bem_vindo();
 
     palavra_secreta = sorteia_palavra();
 
     while (nao_acertou(palavra_secreta, ja_chutou) && chutes_errados.size() < 5)
     {
-        mostraChutesErrados(chutes_errados);
+        mostra_chutes_errados(chutes_errados);
 
-        mostraPlaceholders(palavra_secreta, ja_chutou);
+        mostra_placeholders(palavra_secreta, ja_chutou);
 
-        pedeChute(&ja_chutou, chutes_errados, palavra_secreta);
+        pede_chute(&ja_chutou, chutes_errados, palavra_secreta);
     }
 
     encerramento(palavra_secreta, ja_chutou);

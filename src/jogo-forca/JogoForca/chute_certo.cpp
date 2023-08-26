@@ -1,7 +1,7 @@
 #include "chute_certo.hpp"
 #include "letra_existe.hpp"
 
-void chuteCerto(char& chute, std::vector<char>* chutes_errados, std::string& palavra_secreta)
+void chute_certo(char& chute, std::vector<char>* chutes_errados, std::string& palavra_secreta)
 {
     if (letra_existe(chute, palavra_secreta))
     {

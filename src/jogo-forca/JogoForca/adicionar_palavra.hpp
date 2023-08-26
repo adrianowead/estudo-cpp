@@ -3,4 +3,4 @@
 #include <vector>
 #include <string>
 
-void adicionarPalavra();
+void adicionar_palavra();

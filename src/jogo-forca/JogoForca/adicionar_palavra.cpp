@@ -2,7 +2,7 @@
 #include "ler_arquivo.hpp"
 #include "salvar_arquivo.hpp"
 
-void adicionarPalavra()
+void adicionar_palavra()
 {
     std::cout << "Digite a nova palavra, evite caracteres especiais:" << std::endl;
 
@@ -17,5 +17,5 @@ void adicionarPalavra()
     std::vector<std::string> lista_palavras = ler_arquivo();
     lista_palavras.push_back(nova_palavra);
 
-    salvarArquivo(lista_palavras);
+    salvar_arquivo(lista_palavras);
 }

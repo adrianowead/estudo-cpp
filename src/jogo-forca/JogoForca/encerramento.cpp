@@ -24,7 +24,7 @@ void encerramento(std::string& palavra_secreta, std::map<char, bool>& ja_chutou)
 
         if (resposta == 'S')
         {
-            adicionarPalavra();
+            adicionar_palavra();
         }
     }
 }

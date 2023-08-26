@@ -2,11 +2,11 @@
 #include <iostream>
 
 /// <summary>
-/// Função de boas vindas ao jogo
+/// Funï¿½ï¿½o de boas vindas ao jogo
 /// 
-/// A instrução inline dispensa a necessidade de arquivo próprio cpp, não há unidade de tradução e nem necessidade de link
+/// A instruï¿½ï¿½o inline dispensa a necessidade de arquivo prï¿½prio cpp, nï¿½o hï¿½ unidade de traduï¿½ï¿½o e nem necessidade de link
 /// </summary>
-inline void bemVindo()
+inline void bem_vindo()
 {
     std::cout << "+-----------------------------+" << std::endl;
     std::cout << "| Bem-Vindo ao Jogo da Forca! |" << std::endl;
