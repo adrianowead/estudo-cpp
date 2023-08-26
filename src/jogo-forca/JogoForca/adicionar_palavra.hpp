@@ -3,4 +3,6 @@
 #include <vector>
 #include <string>
 
-void adicionar_palavra();
+namespace Forca{
+    void adicionar_palavra();
+}

@@ -2,12 +2,12 @@
 #include "nao_acertou.hpp"
 #include "adicionar_palavra.hpp"
 
-void encerramento(std::string& palavra_secreta, std::map<char, bool>& ja_chutou)
+void  Forca::encerramento(std::string& palavra_secreta, std::map<char, bool>& ja_chutou)
 {
     std::cout << "Fim de jogo!" << std::endl;
     std::cout << std::endl;
 
-    if (nao_acertou(palavra_secreta, ja_chutou))
+    if ( Forca::nao_acertou(palavra_secreta, ja_chutou))
     {
         std::cout << "Você perdeu! Tente novamente!" << std::endl;
         std::cout << "A palavra secreta era: " << palavra_secreta << std::endl;
@@ -24,7 +24,7 @@ void encerramento(std::string& palavra_secreta, std::map<char, bool>& ja_chutou)
 
         if (resposta == 'S')
         {
-            adicionar_palavra();
+            Forca::adicionar_palavra();
         }
     }
 }

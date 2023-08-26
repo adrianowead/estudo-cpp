@@ -3,4 +3,6 @@
 #include <map>
 #include <string>
 
-void encerramento(std::string& palavra_secreta, std::map<char, bool>& ja_chutou);
+namespace Forca{
+    void encerramento(std::string& palavra_secreta, std::map<char, bool>& ja_chutou);
+}

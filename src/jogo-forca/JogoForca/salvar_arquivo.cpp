@@ -1,6 +1,6 @@
 #include "salvar_arquivo.hpp"
 
-void salvar_arquivo(std::vector<std::string> nova_lista)
+void Forca::salvar_arquivo(std::vector<std::string> nova_lista)
 {
     std::ofstream arquivo;
     arquivo.open("palavras.txt");

@@ -1,6 +1,6 @@
 #include "letra_existe.hpp"
 
-bool letra_existe(const char& chute, std::string& palavra_secreta)
+bool Forca::letra_existe(const char& chute, std::string& palavra_secreta)
 {
     for (char letra : palavra_secreta)
     {

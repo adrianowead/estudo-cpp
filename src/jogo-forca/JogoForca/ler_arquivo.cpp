@@ -1,6 +1,6 @@
 #include "ler_arquivo.hpp"
 
-std::vector<std::string> ler_arquivo()
+std::vector<std::string> Forca::ler_arquivo()
 {
     std::vector<std::string> palavras_arquivo;
 

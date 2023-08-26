@@ -1,7 +1,7 @@
 #include "pede_chute.hpp"
 #include "chute_certo.hpp"
 
-void pede_chute(std::map<char, bool>* ja_chutou, std::vector<char>& chutes_errados, std::string& palavra_secreta)
+void Forca::pede_chute(std::map<char, bool>* ja_chutou, std::vector<char>& chutes_errados, std::string& palavra_secreta)
 {
     std::cout << std::endl;
     std::cout << "Seu chute:" << std::endl;
@@ -12,5 +12,5 @@ void pede_chute(std::map<char, bool>* ja_chutou, std::vector<char>& chutes_errad
 
     (*ja_chutou)[chute] = true;
 
-    chute_certo(chute, &chutes_errados, palavra_secreta);
+    Forca::chute_certo(chute, &chutes_errados, palavra_secreta);
 }

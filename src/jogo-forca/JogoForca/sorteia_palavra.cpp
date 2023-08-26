@@ -1,9 +1,9 @@
 #include "sorteia_palavra.hpp"
 #include "ler_arquivo.hpp"
 
-std::string sorteia_palavra()
+std::string Forca::sorteia_palavra()
 {
-    std::vector<std::string> palavras = ler_arquivo();
+    std::vector<std::string> palavras = Forca::ler_arquivo();
 
     srand(time(NULL));
     int indice_aleadorio = rand() % palavras.size();

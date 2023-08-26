@@ -19,16 +19,16 @@ int main()
 {
     bem_vindo();
 
-    palavra_secreta = sorteia_palavra();
+    palavra_secreta = Forca::sorteia_palavra();
 
-    while (nao_acertou(palavra_secreta, ja_chutou) && chutes_errados.size() < 5)
+    while (Forca::nao_acertou(palavra_secreta, ja_chutou) && chutes_errados.size() < 5)
     {
-        mostra_chutes_errados(chutes_errados);
+        Forca::mostra_chutes_errados(chutes_errados);
 
-        mostra_placeholders(palavra_secreta, ja_chutou);
+        Forca::mostra_placeholders(palavra_secreta, ja_chutou);
 
-        pede_chute(&ja_chutou, chutes_errados, palavra_secreta);
+        Forca::pede_chute(&ja_chutou, chutes_errados, palavra_secreta);
     }
 
-    encerramento(palavra_secreta, ja_chutou);
+    Forca::encerramento(palavra_secreta, ja_chutou);
 }
