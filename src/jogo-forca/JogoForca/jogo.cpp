@@ -1,5 +1,5 @@
 #include <map>
-#include <vector>
+#include <array>
 #include "bem_vindo.hpp"
 #include "sorteia_palavra.hpp"
 #include "nao_acertou.hpp"
@@ -10,10 +10,12 @@
 
 using namespace std;
 
+int contador_chutes_errados = 0;
+
 static string palavra_secreta;
 
 static map<char, bool> ja_chutou;
-static vector<char> chutes_errados;
+static array<char, 5> chutes_errados;
 
 int main()
 {
@@ -21,13 +23,13 @@ int main()
 
     palavra_secreta = Forca::sorteia_palavra();
 
-    while (Forca::nao_acertou(palavra_secreta, ja_chutou) && chutes_errados.size() < 5)
+    while (Forca::nao_acertou(palavra_secreta, ja_chutou) && contador_chutes_errados < 5)
     {
         Forca::mostra_chutes_errados(chutes_errados);
 
         Forca::mostra_placeholders(palavra_secreta, ja_chutou);
 
-        Forca::pede_chute(&ja_chutou, chutes_errados, palavra_secreta);
+        Forca::pede_chute(&ja_chutou, chutes_errados, palavra_secreta, &contador_chutes_errados);
     }
 
     Forca::encerramento(palavra_secreta, ja_chutou);

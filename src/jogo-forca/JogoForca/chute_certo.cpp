@@ -1,7 +1,7 @@
 #include "chute_certo.hpp"
 #include "letra_existe.hpp"
 
-void  Forca::chute_certo(char& chute, std::vector<char>* chutes_errados, std::string& palavra_secreta)
+void  Forca::chute_certo(char& chute, std::array<char, 5>* chutes_errados, std::string& palavra_secreta, int* contador_chutes_errados)
 {
     if ( Forca::letra_existe(chute, palavra_secreta))
     {
@@ -11,7 +11,8 @@ void  Forca::chute_certo(char& chute, std::vector<char>* chutes_errados, std::st
     {
         std::cout << "Você errou! Seu chute não está na palavra." << std::endl;
 
-        chutes_errados->push_back(chute);
+        (*chutes_errados)[*contador_chutes_errados] = chute;
+        contador_chutes_errados++;
     }
 
     std::cout << std::endl;
