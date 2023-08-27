@@ -5,12 +5,14 @@ namespace Banco {
 	class Conta
 	{
 	private:
-		std::string numeroConta;
-		std::string cpfTitular;
-		std::string nomeTitular;
-		float saldo = 0;
+		std::string conta;
+		std::string cpf;
+		std::string titular;
+		float saldo;
 
 	public:
+		Conta(std::string conta, std::string cpf, std::string titular);
+
 		void sacar(float valor);
 		void depositar(float valor);
 

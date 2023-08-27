@@ -1,6 +1,14 @@
 #include "Conta.hpp"
 #include <iostream>
 
+Banco::Conta::Conta(std::string conta, std::string cpf, std::string titular)
+{
+	this->conta = conta;
+	this->cpf = cpf;
+	this->titular = titular;
+	this->saldo = 0;
+}
+
 void Banco::Conta::sacar(float valor)
 {
 	if (valor < 1) {
@@ -33,30 +41,30 @@ const float Banco::Conta::getSaldo()
 
 const std::string Banco::Conta::getNumero()
 {
-	return numeroConta;
+	return this->conta;
 }
 
 const std::string Banco::Conta::getCpf()
 {
-	return cpfTitular;
+	return this->cpf;
 }
 
 const std::string Banco::Conta::getNome()
 {
-	return nomeTitular;
+	return this->titular;
 }
 
 void Banco::Conta::setNumero(std::string numero)
 {
-	numeroConta = numero;
+	this->conta = numero;
 }
 
 void Banco::Conta::setNome(std::string nome)
 {
-	nomeTitular = nome;
+	this->titular = nome;
 }
 
 void Banco::Conta::setCpf(std::string cpf)
 {
-	cpfTitular = cpf;
+	this->cpf = cpf;
 }

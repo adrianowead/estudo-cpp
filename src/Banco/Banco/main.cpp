@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-	Banco::Conta conta;
+	Banco::Conta conta = Banco::Conta("12345", "123.456.789-10", "Adriano Maciel");
 
 	conta.depositar(1000);
 
