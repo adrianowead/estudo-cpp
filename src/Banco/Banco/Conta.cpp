@@ -26,22 +26,22 @@ void Banco::Conta::depositar(float valor)
 	saldo += valor;
 }
 
-float Banco::Conta::getSaldo()
+const float Banco::Conta::getSaldo()
 {
 	return saldo;
 }
 
-std::string Banco::Conta::getNumero()
+const std::string Banco::Conta::getNumero()
 {
 	return numeroConta;
 }
 
-std::string Banco::Conta::getCpf()
+const std::string Banco::Conta::getCpf()
 {
 	return cpfTitular;
 }
 
-std::string Banco::Conta::getNome()
+const std::string Banco::Conta::getNome()
 {
 	return nomeTitular;
 }

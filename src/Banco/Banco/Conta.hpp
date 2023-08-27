@@ -14,10 +14,10 @@ namespace Banco {
 		void sacar(float valor);
 		void depositar(float valor);
 
-		float getSaldo();
-		std::string getNumero();
-		std::string getCpf();
-		std::string getNome();
+		const float getSaldo();
+		const std::string getNumero();
+		const std::string getCpf();
+		const std::string getNome();
 
 		void setNumero(std::string numero);
 		void setNome(std::string nome);
