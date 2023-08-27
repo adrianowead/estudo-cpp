@@ -1,12 +1,10 @@
 #include "Conta.hpp"
 #include <iostream>
 
-Banco::Conta::Conta(std::string conta, std::string cpf, std::string titular)
+Banco::Conta::Conta(std::string conta, std::string cpf, std::string titular) :
+	conta(conta), cpf(cpf), titular(titular), saldo(0)
 {
-	this->conta = conta;
-	this->cpf = cpf;
-	this->titular = titular;
-	this->saldo = 0;
+	//
 }
 
 void Banco::Conta::sacar(float valor)
