@@ -25,3 +25,38 @@ void Banco::Conta::depositar(float valor)
 
 	saldo += valor;
 }
+
+float Banco::Conta::getSaldo()
+{
+	return saldo;
+}
+
+std::string Banco::Conta::getNumero()
+{
+	return numeroConta;
+}
+
+std::string Banco::Conta::getCpf()
+{
+	return cpfTitular;
+}
+
+std::string Banco::Conta::getNome()
+{
+	return nomeTitular;
+}
+
+void Banco::Conta::setNumero(std::string numero)
+{
+	numeroConta = numero;
+}
+
+void Banco::Conta::setNome(std::string nome)
+{
+	nomeTitular = nome;
+}
+
+void Banco::Conta::setCpf(std::string cpf)
+{
+	cpfTitular = cpf;
+}
