@@ -5,7 +5,7 @@ namespace Banco {
 	class Conta
 	{
 	private:
-		static int numeroDeContas; // global, independente da instância do objeto (static)
+		static int numeroDeContas; // global, independente da instï¿½ncia do objeto (static)
 
 	public:
 		static int getTotalContas();
@@ -30,5 +30,8 @@ namespace Banco {
 		const std::string getNumero();
 		const std::string getCpf();
 		const std::string getNome();
+	
+	private:
+		void validaNomeTitular();
 	};
 }

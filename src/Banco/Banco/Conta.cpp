@@ -9,6 +9,8 @@ Banco::Conta::Conta(std::string conta, std::string cpf, std::string titular) :
 	titular(titular),
 	saldo(0)
 {
+	this->validaNomeTitular();
+
 	// incrementar valor global
 	numeroDeContas++;
 }
@@ -67,4 +69,12 @@ const std::string Banco::Conta::getNome()
 int Banco::Conta::getTotalContas()
 {
 	return numeroDeContas;
+}
+
+void Banco::Conta::validaNomeTitular()
+{
+	if(this->titular.size() < 5) {
+		std::cout << "Nome muito curto." << std::endl;
+		exit(1);
+	}
 }
