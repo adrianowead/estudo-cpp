@@ -17,7 +17,11 @@ namespace Banco {
 		float saldo;
 
 	public:
+		// construtor
 		Conta(std::string conta, std::string cpf, std::string titular);
+
+		// destrutor
+		~Conta();
 
 		void sacar(float valor);
 		void depositar(float valor);

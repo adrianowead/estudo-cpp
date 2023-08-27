@@ -13,6 +13,12 @@ Banco::Conta::Conta(std::string conta, std::string cpf, std::string titular) :
 	numeroDeContas++;
 }
 
+Banco::Conta::~Conta()
+{
+	// decrementar ao destruir objeto de conta
+	numeroDeContas--;
+}
+
 void Banco::Conta::sacar(float valor)
 {
 	if (valor < 1) {
