@@ -1,13 +1,16 @@
 #include "Conta.hpp"
 #include <iostream>
 
+int Banco::Conta::numeroDeContas = 0; // contador global
+
 Banco::Conta::Conta(std::string conta, std::string cpf, std::string titular) :
 	conta(conta),
 	cpf(cpf),
 	titular(titular),
 	saldo(0)
 {
-	//
+	// incrementar valor global
+	numeroDeContas++;
 }
 
 void Banco::Conta::sacar(float valor)
@@ -53,4 +56,9 @@ const std::string Banco::Conta::getCpf()
 const std::string Banco::Conta::getNome()
 {
 	return this->titular;
+}
+
+int Banco::Conta::getTotalContas()
+{
+	return numeroDeContas;
 }

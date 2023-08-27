@@ -5,6 +5,12 @@ namespace Banco {
 	class Conta
 	{
 	private:
+		static int numeroDeContas; // global, independente da instância do objeto (static)
+
+	public:
+		static int getTotalContas();
+
+	private:
 		std::string conta;
 		std::string cpf;
 		std::string titular;
