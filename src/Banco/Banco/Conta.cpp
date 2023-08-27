@@ -2,7 +2,10 @@
 #include <iostream>
 
 Banco::Conta::Conta(std::string conta, std::string cpf, std::string titular) :
-	conta(conta), cpf(cpf), titular(titular), saldo(0)
+	conta(conta),
+	cpf(cpf),
+	titular(titular),
+	saldo(0)
 {
 	//
 }
@@ -50,19 +53,4 @@ const std::string Banco::Conta::getCpf()
 const std::string Banco::Conta::getNome()
 {
 	return this->titular;
-}
-
-void Banco::Conta::setNumero(std::string numero)
-{
-	this->conta = numero;
-}
-
-void Banco::Conta::setNome(std::string nome)
-{
-	this->titular = nome;
-}
-
-void Banco::Conta::setCpf(std::string cpf)
-{
-	this->cpf = cpf;
 }

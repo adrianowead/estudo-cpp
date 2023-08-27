@@ -20,9 +20,5 @@ namespace Banco {
 		const std::string getNumero();
 		const std::string getCpf();
 		const std::string getNome();
-
-		void setNumero(std::string numero);
-		void setNome(std::string nome);
-		void setCpf(std::string cpf);
 	};
 }
