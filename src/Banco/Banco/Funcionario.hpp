@@ -12,8 +12,8 @@ namespace Banco {
 	public:
 		Funcionario(std::string nome, Cpf cpf);
 
-		const std::string getNome();
-		const std::string getCpf();
+		std::string getNome() const;
+		std::string getCpf() const;
 	};
 }
 

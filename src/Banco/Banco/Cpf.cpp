@@ -16,7 +16,7 @@ void Banco::Cpf::validarCpf()
 	}
 }
 
-const std::string Banco::Cpf::getCpf()
+std::string Banco::Cpf::getCpf() const
 {
 	return this->numero;
 }

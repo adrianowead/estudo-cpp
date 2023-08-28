@@ -11,7 +11,7 @@ namespace Banco {
 
 	public:
 		Cpf(std::string cpf);
-		const std::string getCpf();
+		std::string getCpf() const;
 	};
 }
 
