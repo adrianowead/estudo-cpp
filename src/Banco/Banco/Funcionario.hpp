@@ -1,13 +1,12 @@
 #pragma once
 #include "Cpf.hpp"
 #include <string>
+#include "Pessoa.hpp"
 
 namespace Banco {
-	class Funcionario
+	class Funcionario: public Pessoa
 	{
 	private:
-		std::string nome;
-		Cpf cpf;
 		float salario;
 
 	public:
