@@ -7,7 +7,7 @@ Banco::Conta::Conta(std::string conta, Titular titular) :
 	conta(conta),
 	titular(titular),
 	saldo(0),
-	taxaDeSaque(0.05)
+	taxaDeSaque(0)
 {
 	// incrementar valor global
 	numeroDeContas++;
