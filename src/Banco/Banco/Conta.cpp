@@ -3,7 +3,7 @@
 
 int Banco::Conta::numeroDeContas = 0; // contador global
 
-Banco::Conta::Conta(std::string conta, Titular titular) :
+Banco::Conta::Conta(std::string conta, Individuo::Titular titular) :
 	conta(conta),
 	titular(titular),
 	saldo(0)

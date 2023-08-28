@@ -1,23 +1,23 @@
 #include "Funcionario.hpp"
 
-Banco::Funcionario::Funcionario(std::string nome, Cpf cpf, double salario):
+RH::Funcionario::Funcionario(std::string nome, Individuo::Cpf cpf, double salario):
 	Pessoa(nome, cpf),
 	salario(salario)
 {
 	//
 }
 
-std::string Banco::Funcionario::getNome() const
+std::string RH::Funcionario::getNome() const
 {
 	return this->nome;
 }
 
-std::string Banco::Funcionario::getCpf() const
+std::string RH::Funcionario::getCpf() const
 {
 	return this->cpf.getCpf();
 }
 
-double Banco::Funcionario::getSalario() const
+double RH::Funcionario::getSalario() const
 {
 	return this->salario;
 }

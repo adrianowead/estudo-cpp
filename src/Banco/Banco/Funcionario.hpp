@@ -3,14 +3,14 @@
 #include <string>
 #include "Pessoa.hpp"
 
-namespace Banco {
-	class Funcionario: public Pessoa
+namespace RH {
+	class Funcionario: public Individuo::Pessoa
 	{
 	private:
 		double salario;
 
 	public:
-		Funcionario(std::string nome, Cpf cpf, double salario);
+		Funcionario(std::string nome, Individuo::Cpf cpf, double salario);
 
 		std::string getNome() const;
 		std::string getCpf() const;

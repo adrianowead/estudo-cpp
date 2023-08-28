@@ -13,12 +13,12 @@ namespace Banco {
 
 	private:
 		std::string conta;
-		Titular titular;
+		Individuo::Titular titular;
 		double saldo;
 
 	public:
 		// construtor
-		Conta(std::string conta, Titular titular);
+		Conta(std::string conta, Individuo::Titular titular);
 
 		// destrutor
 		// é boa prática sempre marcar o destrutor como virtual

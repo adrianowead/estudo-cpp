@@ -2,12 +2,12 @@
 #include <string>
 #include "Cpf.hpp"
 
-namespace Banco {
+namespace Individuo {
 	class Pessoa
 	{
 	protected:
 		std::string nome;
-		Cpf cpf;
+		Individuo::Cpf cpf;
 
 	public:
 		Pessoa(std::string nome, Cpf cpf);

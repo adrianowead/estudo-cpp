@@ -2,13 +2,13 @@
 #include <string>
 #include <iostream>
 
-Banco::Cpf::Cpf(std::string cpf):
+Individuo::Cpf::Cpf(std::string cpf):
 	numero(cpf)
 {
 	this->validarCpf();
 }
 
-void Banco::Cpf::validarCpf()
+void Individuo::Cpf::validarCpf()
 {
 	if (this->numero.size() < 11) {
 		std::cout << "Comprimento de documento inválido." << std::endl;
@@ -16,7 +16,7 @@ void Banco::Cpf::validarCpf()
 	}
 }
 
-std::string Banco::Cpf::getCpf() const
+std::string Individuo::Cpf::getCpf() const
 {
 	return this->numero;
 }

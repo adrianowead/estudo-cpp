@@ -7,7 +7,7 @@ namespace Banco {
 	class ContaPoupanca final: public Conta
 	{
 	public:
-		ContaPoupanca(std::string conta, Titular titular);
+		ContaPoupanca(std::string conta, Individuo::Titular titular);
 		void sacar(double valor) override; // override permite reescrita do método
 		double getTaxaDeSaque() const override;
 	};

@@ -1,7 +1,7 @@
 #include <iostream>
 #include "ContaCorrente.hpp"
 
-Banco::ContaCorrente::ContaCorrente(std::string conta, Titular titular) :
+Banco::ContaCorrente::ContaCorrente(std::string conta, Individuo::Titular titular) :
 	Conta(conta, titular)
 {
 	Conta::validarTaxaDeSaque();

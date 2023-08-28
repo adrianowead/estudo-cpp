@@ -15,7 +15,7 @@ void realizaSaque(Banco::Conta& conta, float valor)
 	conta.sacar(valor);
 }
 
-void fazLogin(Banco::Autenticavel& alguem, string senha)
+void fazLogin(const Login::Autenticavel& alguem, string senha)
 {
 	if (alguem.autentica(senha)) {
 		cout << "Login com sucesso" << endl;
@@ -29,8 +29,8 @@ int main()
 {
 	Banco::ContaPoupanca conta = Banco::ContaPoupanca(
 		"12345",
-		Banco::Titular(
-			Banco::Cpf("123.456.789-10"), 
+		Individuo::Titular(
+			Individuo::Cpf("123.456.789-10"),
 			"Adriano Maciel",
 			"senha1"
 		)
@@ -42,8 +42,8 @@ int main()
 
 	Banco::ContaCorrente conta2 = Banco::ContaCorrente(
 		"22222",
-		Banco::Titular(
-			Banco::Cpf("134.444.5555-10"),
+		Individuo::Titular(
+			Individuo::Cpf("134.444.5555-10"),
 			"João B",
 			"senha2"
 		)
@@ -54,8 +54,8 @@ int main()
 	cout << "Saldo (Corrente): " << conta2.getSaldo() << endl;
 
 	Banco::ContaCorrente conta3 = Banco::ContaCorrente("990",
-		Banco::Titular(
-			Banco::Cpf("555.222.111-00"), 
+		Individuo::Titular(
+			Individuo::Cpf("555.222.111-00"),
 			"Ana P", 
 			"senha3"
 		)
@@ -70,18 +70,18 @@ int main()
 
 	////
 
-	Banco::Caixa caixa = Banco::Caixa(
+	RH::Caixa caixa = RH::Caixa(
 		"Adriano",
-		Banco::Cpf("000.111.222-00"),
+		Individuo::Cpf("000.111.222-00"),
 		3200
 	);
 
 	cout << "Funcionário: " << caixa.getNome() << ", bônus: " << caixa.bonificacao() << endl;
 
 
-	Banco::Gerente gerente = Banco::Gerente(
+	RH::Gerente gerente = RH::Gerente(
 		"Ana S",
-		Banco::Cpf("000.777.222-00"),
+		Individuo::Cpf("000.777.222-00"),
 		13500,
 		"senha4"
 	);

@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 
-namespace Banco {
+namespace Individuo {
 	class Cpf final
 	{
 	private:

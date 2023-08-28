@@ -1,7 +1,7 @@
 #include <iostream>
 #include "ContaPoupanca.hpp"
 
-Banco::ContaPoupanca::ContaPoupanca(std::string conta, Titular titular):
+Banco::ContaPoupanca::ContaPoupanca(std::string conta, Individuo::Titular titular):
 	Conta(conta, titular)
 {
 	Conta::validarTaxaDeSaque();

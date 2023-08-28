@@ -3,10 +3,10 @@
 #include "Pessoa.hpp"
 #include "Autenticavel.hpp"
 
-namespace Banco {
-	class Titular final: public Pessoa, public Autenticavel
+namespace Individuo {
+	class Titular final: public Individuo::Pessoa, public Login::Autenticavel
 	{
 	public:
-		Titular(Cpf cpf, std::string nome, std::string senha);
+		Titular(Individuo::Cpf cpf, std::string nome, std::string senha);
 	};
 }
