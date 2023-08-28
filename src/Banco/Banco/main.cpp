@@ -6,11 +6,11 @@ using namespace std;
 
 int main()
 {
-	Banco::Conta conta = Banco::Conta("12345", "123.456.789-10", "Adriano Maciel");
+	Banco::Conta conta = Banco::Conta("12345", Banco::Titular("123.456.789-10", "Adriano Maciel"));
 	conta.depositar(1000);
 	conta.sacar(42);
 
-	Banco::Conta conta2 = Banco::Conta("22222", "134.444.5555-10", "João");
+	Banco::Conta conta2 = Banco::Conta("22222", Banco::Titular("134.444.5555-10", "João"));
 	conta2.depositar(93);
 	conta2.sacar(42);
 

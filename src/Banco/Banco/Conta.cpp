@@ -3,14 +3,11 @@
 
 int Banco::Conta::numeroDeContas = 0; // contador global
 
-Banco::Conta::Conta(std::string conta, std::string cpf, std::string titular) :
+Banco::Conta::Conta(std::string conta, Titular titular) :
 	conta(conta),
-	cpf(cpf),
 	titular(titular),
 	saldo(0)
 {
-	this->validaNomeTitular();
-
 	// incrementar valor global
 	numeroDeContas++;
 }
@@ -58,23 +55,15 @@ const std::string Banco::Conta::getNumero()
 
 const std::string Banco::Conta::getCpf()
 {
-	return this->cpf;
+	return this->titular.getCpf();
 }
 
 const std::string Banco::Conta::getNome()
 {
-	return this->titular;
+	return this->titular.getNome();
 }
 
 int Banco::Conta::getTotalContas()
 {
 	return numeroDeContas;
-}
-
-void Banco::Conta::validaNomeTitular()
-{
-	if(this->titular.size() < 5) {
-		std::cout << "Nome muito curto." << std::endl;
-		exit(1);
-	}
 }

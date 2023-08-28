@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include "Titular.hpp"
 
 namespace Banco {
 	class Conta
@@ -12,13 +13,12 @@ namespace Banco {
 
 	private:
 		std::string conta;
-		std::string cpf;
-		std::string titular;
+		Titular titular;
 		float saldo;
 
 	public:
 		// construtor
-		Conta(std::string conta, std::string cpf, std::string titular);
+		Conta(std::string conta, Titular titular);
 
 		// destrutor
 		~Conta();
@@ -30,8 +30,5 @@ namespace Banco {
 		const std::string getNumero();
 		const std::string getCpf();
 		const std::string getNome();
-	
-	private:
-		void validaNomeTitular();
 	};
 }

@@ -129,9 +129,11 @@
   <ItemGroup>
     <ClCompile Include="Conta.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Titular.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Conta.hpp" />
+    <ClInclude Include="Titular.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
