@@ -4,16 +4,21 @@
 #include "Pessoa.hpp"
 
 namespace Banco {
-	class Funcionario final: public Pessoa
+	class Funcionario: public Pessoa
 	{
 	private:
-		float salario;
+		double salario;
 
 	public:
-		Funcionario(std::string nome, Cpf cpf);
+		Funcionario(std::string nome, Cpf cpf, double salario);
 
 		std::string getNome() const;
 		std::string getCpf() const;
+
+		virtual double bonificacao() const = 0;
+
+	protected:
+		double getSalario() const;
 	};
 }
 

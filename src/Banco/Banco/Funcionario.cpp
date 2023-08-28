@@ -1,8 +1,8 @@
 #include "Funcionario.hpp"
 
-Banco::Funcionario::Funcionario(std::string nome, Cpf cpf):
+Banco::Funcionario::Funcionario(std::string nome, Cpf cpf, double salario):
 	Pessoa(nome, cpf),
-	salario(0)
+	salario(salario)
 {
 	//
 }
@@ -15,4 +15,9 @@ std::string Banco::Funcionario::getNome() const
 std::string Banco::Funcionario::getCpf() const
 {
 	return this->cpf.getCpf();
+}
+
+double Banco::Funcionario::getSalario() const
+{
+	return this->salario;
 }

@@ -4,6 +4,8 @@
 #include "ContaPoupanca.hpp"
 #include "ContaCorrente.hpp"
 #include "Funcionario.hpp"
+#include "Caixa.hpp"
+#include "Gerente.hpp"
 
 using namespace std;
 
@@ -37,12 +39,22 @@ int main()
 
 	////
 
-	Banco::Funcionario funcionario = Banco::Funcionario(
+	Banco::Caixa caixa = Banco::Caixa(
 		"Adriano",
-		Banco::Cpf("000.111.222-00")
+		Banco::Cpf("000.111.222-00"),
+		3200
 	);
 
-	cout << "Funcionário: " << funcionario.getNome() << endl;
+	cout << "Funcionário: " << caixa.getNome() << ", bônus: " << caixa.bonificacao() << endl;
+
+
+	Banco::Gerente gerente = Banco::Gerente(
+		"Ana S",
+		Banco::Cpf("000.777.222-00"),
+		13500
+	);
+
+	cout << "Funcionário: " << gerente.getNome() << ", bônus: " << gerente.bonificacao() << endl;
 
 	return 0;
 }
