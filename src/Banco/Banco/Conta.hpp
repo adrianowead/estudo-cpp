@@ -7,6 +7,7 @@ namespace Banco {
 	{
 	private:
 		static int numeroDeContas; // global, independente da inst�ncia do objeto (static)
+		float taxaDeSaque;
 
 	public:
 		static int getTotalContas();
@@ -23,10 +24,13 @@ namespace Banco {
 		// destrutor
 		~Conta();
 
-		void sacar(float valor);
+		virtual void sacar(float valor); // virtual pode ser sobrescrito nas classes filhas
 		void depositar(float valor);
 
 		const float getSaldo();
 		const std::string getNumero();
+
+	protected:
+		void setTaxaDeSaque(float taxa);
 	};
 }
