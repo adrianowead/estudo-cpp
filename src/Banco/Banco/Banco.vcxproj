@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Autenticavel.cpp" />
     <ClCompile Include="Caixa.cpp" />
     <ClCompile Include="Conta.cpp" />
     <ClCompile Include="ContaCorrente.cpp" />
@@ -139,6 +140,7 @@
     <ClCompile Include="Titular.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Autenticavel.hpp" />
     <ClInclude Include="Caixa.hpp" />
     <ClInclude Include="Conta.hpp" />
     <ClInclude Include="ContaCorrente.hpp" />

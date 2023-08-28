@@ -1,7 +1,8 @@
 #include "Gerente.hpp"
 
-Banco::Gerente::Gerente(std::string nome, Cpf cpf, double salario):
-	Funcionario(nome, cpf, salario)
+Banco::Gerente::Gerente(std::string nome, Cpf cpf, double salario, std::string senha):
+	Funcionario(nome, cpf, salario),
+	Autenticavel(senha)
 {
 	//
 }
