@@ -53,16 +53,6 @@ const std::string Banco::Conta::getNumero()
 	return this->conta;
 }
 
-const std::string Banco::Conta::getCpf()
-{
-	return this->titular.getCpf();
-}
-
-const std::string Banco::Conta::getNome()
-{
-	return this->titular.getNome();
-}
-
 int Banco::Conta::getTotalContas()
 {
 	return numeroDeContas;

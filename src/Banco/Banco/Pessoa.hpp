@@ -5,14 +5,12 @@
 namespace Banco {
 	class Pessoa
 	{
-	private:
+	protected:
 		std::string nome;
 		Cpf cpf;
 
 	public:
 		Pessoa(std::string nome, Cpf cpf);
-		const std::string getNome();
-		const std::string getCpf();
 
 	private:
 		void validarNome();

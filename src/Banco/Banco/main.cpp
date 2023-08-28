@@ -15,8 +15,8 @@ int main()
 	conta2.depositar(93);
 	conta2.sacar(42);
 
-	cout << "Saldo (" << conta.getNome() << "): " << conta.getSaldo() << endl;
-	cout << "Saldo (" << conta2.getNome() << "): " << conta2.getSaldo() << endl;
+	cout << "Saldo (conta1): " << conta.getSaldo() << endl;
+	cout << "Saldo (conta2): " << conta2.getSaldo() << endl;
 
 	cout << "Total de contas: " << Banco::Conta::getTotalContas() << endl;
 
@@ -26,6 +26,8 @@ int main()
 		"Adriano",
 		Banco::Cpf("000.111.222-00")
 	);
+
+	cout << "Funcionário: " << funcionario.getNome() << endl;
 
 	return 0;
 }

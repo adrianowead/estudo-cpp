@@ -6,3 +6,13 @@ Banco::Funcionario::Funcionario(std::string nome, Cpf cpf):
 {
 	//
 }
+
+const std::string Banco::Funcionario::getNome()
+{
+	return this->nome;
+}
+
+const std::string Banco::Funcionario::getCpf()
+{
+	return this->cpf.getCpf();
+}

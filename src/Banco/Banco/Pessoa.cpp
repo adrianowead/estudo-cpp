@@ -17,13 +17,3 @@ void Banco::Pessoa::validarNome()
 		exit(1);
 	}
 }
-
-const std::string Banco::Pessoa::getNome()
-{
-	return this->nome;
-}
-
-const std::string Banco::Pessoa::getCpf()
-{
-	return this->cpf.getCpf();
-}

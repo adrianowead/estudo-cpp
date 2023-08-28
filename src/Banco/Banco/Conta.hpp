@@ -28,7 +28,5 @@ namespace Banco {
 
 		const float getSaldo();
 		const std::string getNumero();
-		const std::string getCpf();
-		const std::string getNome();
 	};
 }
