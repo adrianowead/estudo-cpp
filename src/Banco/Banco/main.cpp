@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "Conta.hpp"
+#include "Funcionario.hpp"
 
 using namespace std;
 
@@ -18,6 +19,13 @@ int main()
 	cout << "Saldo (" << conta2.getNome() << "): " << conta2.getSaldo() << endl;
 
 	cout << "Total de contas: " << Banco::Conta::getTotalContas() << endl;
+
+	////
+
+	Banco::Funcionario funcionario = Banco::Funcionario(
+		"Adriano",
+		Banco::Cpf("000.111.222-00")
+	);
 
 	return 0;
 }
