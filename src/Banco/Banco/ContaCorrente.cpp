@@ -19,3 +19,9 @@ double Banco::ContaCorrente::getTaxaDeSaque() const
 {
 	return 0.05;
 }
+
+void Banco::ContaCorrente::transferePara(Conta& destino, double valor)
+{
+	this->sacar(valor);
+	destino.depositar(valor);
+}

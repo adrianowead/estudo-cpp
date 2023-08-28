@@ -26,6 +26,13 @@ int main()
 
 	cout << "Saldo (Corrente): " << conta2.getSaldo() << endl;
 
+	Banco::ContaCorrente conta3 = Banco::ContaCorrente("990", Banco::Titular(Banco::Cpf("555.222.111-00"), "Ana P"));
+
+	conta2.transferePara(conta3, 10);
+
+	cout << "Saldo (Corrente): " << conta2.getSaldo() << endl;
+	cout << "Saldo (Conta Nova): " << conta3.getSaldo() << endl;
+
 	cout << "Total de contas: " << Banco::Conta::getTotalContas() << endl;
 
 	////

@@ -8,6 +8,7 @@ namespace Banco {
 		ContaCorrente(std::string conta, Titular titular);
 		void sacar(double valor) override;
 		double getTaxaDeSaque() const override;
+		void transferePara(Conta& destino, double valor);
 	};
 }
 
