@@ -6,8 +6,7 @@ int Banco::Conta::numeroDeContas = 0; // contador global
 Banco::Conta::Conta(std::string conta, Titular titular) :
 	conta(conta),
 	titular(titular),
-	saldo(0),
-	taxaDeSaque(0)
+	saldo(0)
 {
 	// incrementar valor global
 	numeroDeContas++;
@@ -19,41 +18,49 @@ Banco::Conta::~Conta()
 	numeroDeContas--;
 }
 
-void Banco::Conta::sacar(float valor)
+void Banco::Conta::sacar(double valor)
 {
 	if (valor < 1) {
 		std::cout << "O valor a sacar deve ser igual ou maior do que 1.00." << std::endl;
 		return;
 	}
 
-	float valorDoSaque = valor + (this->taxaDeSaque * valor);
+	double valorDoSaque = valor + (getTaxaDeSaque() * valor);
 
-	if (valorDoSaque > saldo) {
+	if (valorDoSaque > this->saldo) {
 		std::cout << "Saldo insuficiente." << std::endl;
 		return;
 	}
 
-	std::cout << "Taxa: " << this->taxaDeSaque << std::endl;
+	std::cout << "Taxa: " << getTaxaDeSaque() << std::endl;
 
-	saldo -= valorDoSaque;
+	this->saldo -= valorDoSaque;
 }
 
-void Banco::Conta::depositar(float valor)
+void Banco::Conta::depositar(double valor)
 {
 	if (valor < 1) {
 		std::cout << "O valor a ser depositado deve ser igual ou maior do que 1.00." << std::endl;
 		return;
 	}
 
-	saldo += valor;
+	this->saldo += valor;
 }
 
-const float Banco::Conta::getSaldo()
+double Banco::Conta::getSaldo() const
 {
-	return saldo;
+	return this->saldo;
 }
 
-const std::string Banco::Conta::getNumero()
+void Banco::Conta::validarTaxaDeSaque()
+{
+	if (getTaxaDeSaque() < 0) {
+		std::cout << "A Taxa de saque não pode ser negativa." << std::endl;
+		return;
+	}
+}
+
+std::string Banco::Conta::getNumero() const
 {
 	return this->conta;
 }
@@ -61,14 +68,4 @@ const std::string Banco::Conta::getNumero()
 int Banco::Conta::getTotalContas()
 {
 	return numeroDeContas;
-}
-
-void Banco::Conta::setTaxaDeSaque(float taxa)
-{
-	if (taxa <= 0) {
-		std::cout << "A Taxa de saque deve ser superior a zero." << std::endl;
-		return;
-	}
-
-	this->taxaDeSaque = taxa;
 }

@@ -8,6 +8,7 @@ namespace Banco {
 	{
 	public:
 		ContaPoupanca(std::string conta, Titular titular);
-		void sacar(float valor) override; // override permite reescrita do método
+		void sacar(double valor) override; // override permite reescrita do método
+		double getTaxaDeSaque() const override;
 	};
 }

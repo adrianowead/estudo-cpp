@@ -7,7 +7,6 @@ namespace Banco {
 	{
 	private:
 		static int numeroDeContas; // global, independente da inst�ncia do objeto (static)
-		float taxaDeSaque;
 
 	public:
 		static int getTotalContas();
@@ -15,7 +14,7 @@ namespace Banco {
 	private:
 		std::string conta;
 		Titular titular;
-		float saldo;
+		double saldo;
 
 	public:
 		// construtor
@@ -29,13 +28,22 @@ namespace Banco {
 		// evitando vazamento de memória
 		virtual ~Conta();
 
-		virtual void sacar(float valor); // virtual pode ser sobrescrito nas classes filhas
-		void depositar(float valor);
+		virtual void sacar(double valor); // virtual pode ser sobrescrito nas classes filhas
+		void depositar(double valor);
 
-		const float getSaldo();
-		const std::string getNumero();
+		double getSaldo() const;
+		std::string getNumero() const;
+
+		// = 0 indica método puramente virtual,
+		// sendo obrigatório nas classes filhas
+		// e ao mesmo tempo torna a classe atual como asbtrada
+		// não podendo ser instânciada diretamente
+		// pois o método virtual não pode ser implementado na classe atual
+		// e como é obrigatório a torna impossível de instanciar, por estar incompleta
+		// é o mesmo que método abstrado em outras linguagens
+		virtual double getTaxaDeSaque() const = 0;
 
 	protected:
-		void setTaxaDeSaque(float taxa);
+		void validarTaxaDeSaque();
 	};
 }

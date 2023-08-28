@@ -4,13 +4,18 @@
 Banco::ContaCorrente::ContaCorrente(std::string conta, Titular titular) :
 	Conta(conta, titular)
 {
-	Conta::setTaxaDeSaque(0.05);
+	Conta::validarTaxaDeSaque();
 }
 
-void Banco::ContaCorrente::sacar(float valor)
+void Banco::ContaCorrente::sacar(double valor)
 {
 	std::cout << "Sacando " << valor << ", de uma conta Corrente" << std::endl;
 
 	// repassando para a implementação padrão da classe pai
 	Conta::sacar(valor);
+}
+
+double Banco::ContaCorrente::getTaxaDeSaque() const
+{
+	return 0.05;
 }
