@@ -10,7 +10,7 @@ int main()
 	conta.depositar(1000);
 	conta.sacar(42);
 
-	Banco::Conta conta2 = Banco::Conta("22222", Banco::Titular("134.444.5555-10", "João"));
+	Banco::Conta conta2 = Banco::Conta("22222", Banco::Titular("134.444.5555-10", "João B"));
 	conta2.depositar(93);
 	conta2.sacar(42);
 

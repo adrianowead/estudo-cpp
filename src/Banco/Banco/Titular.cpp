@@ -3,7 +3,7 @@
 
 Banco::Titular::Titular(std::string cpf, std::string nome):
 	nome(nome),
-	cpf(cpf)
+	cpf(Cpf(cpf))
 {
 	this->validaNomeTitular();
 }
@@ -15,7 +15,7 @@ const std::string Banco::Titular::getNome()
 
 const std::string Banco::Titular::getCpf()
 {
-	return this->cpf;
+	return this->cpf.getCpf();
 }
 
 void Banco::Titular::validaNomeTitular()

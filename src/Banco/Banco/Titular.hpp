@@ -1,11 +1,12 @@
 #include <string>
+#include "Cpf.hpp"
 
 namespace Banco {
 	class Titular
 	{
 	private:
 		std::string nome;
-		std::string cpf;
+		Cpf cpf;
 
 	public:
 		Titular(std::string cpf, std::string nome);
