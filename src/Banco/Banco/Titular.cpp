@@ -1,9 +1,9 @@
 #include "Titular.hpp"
 #include <iostream>
 
-Banco::Titular::Titular(std::string cpf, std::string nome):
+Banco::Titular::Titular(Cpf cpf, std::string nome):
 	nome(nome),
-	cpf(Cpf(cpf))
+	cpf(cpf)
 {
 	this->validaNomeTitular();
 }

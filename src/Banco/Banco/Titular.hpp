@@ -9,7 +9,7 @@ namespace Banco {
 		Cpf cpf;
 
 	public:
-		Titular(std::string cpf, std::string nome);
+		Titular(Cpf cpf, std::string nome);
 
 		const std::string getNome();
 		const std::string getCpf();
