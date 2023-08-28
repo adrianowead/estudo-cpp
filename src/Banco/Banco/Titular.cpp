@@ -1,7 +1,7 @@
 #include "Titular.hpp"
 #include <iostream>
 
-Banco::Titular::Titular(std::string nome, std::string cpf):
+Banco::Titular::Titular(std::string cpf, std::string nome):
 	nome(nome),
 	cpf(cpf)
 {
