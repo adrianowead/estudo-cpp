@@ -4,7 +4,7 @@
 #include "Pessoa.hpp"
 
 namespace Banco {
-	class Funcionario: public Pessoa
+	class Funcionario final: public Pessoa
 	{
 	private:
 		float salario;

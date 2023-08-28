@@ -22,7 +22,12 @@ namespace Banco {
 		Conta(std::string conta, Titular titular);
 
 		// destrutor
-		~Conta();
+		// é boa prática sempre marcar o destrutor como virtual
+		// para que as classes filhas possam implementar seus destrutores
+		// e isso garante a liberação de recursos
+		// independentemente de ter sido alocado na heap ou não
+		// evitando vazamento de memória
+		virtual ~Conta();
 
 		virtual void sacar(float valor); // virtual pode ser sobrescrito nas classes filhas
 		void depositar(float valor);

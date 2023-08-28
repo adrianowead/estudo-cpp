@@ -2,7 +2,7 @@
 #include <string>
 
 namespace Banco {
-	class Cpf
+	class Cpf final
 	{
 	private:
 		std::string numero;

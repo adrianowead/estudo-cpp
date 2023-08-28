@@ -3,7 +3,8 @@
 #include "Conta.hpp"
 
 namespace Banco {
-	class ContaPoupanca: public Conta
+	// classes finais não podem ser herdadas
+	class ContaPoupanca final: public Conta
 	{
 	public:
 		ContaPoupanca(std::string conta, Titular titular);

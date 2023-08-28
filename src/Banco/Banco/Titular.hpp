@@ -3,7 +3,7 @@
 #include "Pessoa.hpp"
 
 namespace Banco {
-	class Titular: public Pessoa
+	class Titular final: public Pessoa
 	{
 	public:
 		Titular(Cpf cpf, std::string nome);
