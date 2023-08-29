@@ -31,6 +31,9 @@ namespace Banco {
 		virtual void sacar(double valor); // virtual pode ser sobrescrito nas classes filhas
 		void depositar(double valor);
 
+		// outilizando a sobrecarga de operadores
+		void operator += (double valor);
+
 		double getSaldo() const;
 		std::string getNumero() const;
 

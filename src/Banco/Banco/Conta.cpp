@@ -18,6 +18,12 @@ Banco::Conta::~Conta()
 	numeroDeContas--;
 }
 
+// redefinindo o comportamento do operador += neste objeto
+void Banco::Conta::operator+=(double valor)
+{
+	this->depositar(valor);
+}
+
 void Banco::Conta::sacar(double valor)
 {
 	if (valor < 1) {

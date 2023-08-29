@@ -48,7 +48,10 @@ int main()
 			"senha2"
 		)
 	);
-	conta2.depositar(90);
+
+	// depositando através de operador
+	conta2 += 90;
+
 	realizaSaque(conta2, 10);
 
 	cout << "Saldo (Corrente): " << conta2.getSaldo() << endl;
