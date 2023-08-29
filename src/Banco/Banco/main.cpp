@@ -55,6 +55,11 @@ int main()
 	);
 
 	// depositando através de operador
+	// observe que exatamente a mesma operação será feita na função
+	// testarOperatorEmOutroEscopo
+	// e lá, não é necessário realizar conversão, por estar em outro escopo
+	// então o conflito de overloading se dá no uso, e não na implementação
+	// aparentemente
 	(Banco::Conta&) corrente1 += 90;
 
 	// repetindo a operação com operator
