@@ -46,6 +46,10 @@ namespace Banco {
 		// é o mesmo que método abstrado em outras linguagens
 		virtual double getTaxaDeSaque() const = 0;
 
+		// função externa e "amiga"
+		// com acesso completo à classe
+		friend std::ostream& operator<<(std::ostream& cout, const Conta& conta);
+
 	protected:
 		void validarTaxaDeSaque();
 	};

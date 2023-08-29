@@ -10,6 +10,11 @@ Individuo::Pessoa::Pessoa(std::string nome, Individuo::Cpf cpf):
 	this->validarNome();
 }
 
+std::string Individuo::Pessoa::getNome() const
+{
+	return this->nome;
+}
+
 void Individuo::Pessoa::validarNome()
 {
 	if (this->nome.size() < 5) {

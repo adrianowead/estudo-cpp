@@ -15,7 +15,7 @@ void realizaSaque(Banco::Conta& conta, float valor)
 	conta.sacar(valor);
 }
 
-void fazLogin(const Login::Autenticavel& alguem, string senha)
+void fazLogin(const Login::Autenticavel& alguem, const string senha)
 {
 	if (alguem.autentica(senha)) {
 		cout << "Login com sucesso" << endl;
@@ -28,6 +28,17 @@ void fazLogin(const Login::Autenticavel& alguem, string senha)
 void testarOperatorEmOutroEscopo(Banco::Conta& conta)
 {
 	conta += 90;
+}
+
+// possibilitando printar um objeto do tipo conta
+// exemplo de customização do operador <<
+ostream& Banco::operator<<(ostream& cout, const Banco::Conta& conta)
+{
+	Individuo::Titular titular = conta.titular;
+
+	cout << "Conta (" << conta.getNumero() << ") com saldo: " << conta.getSaldo() << endl;
+	cout << "Titular da conta: " << titular.getNome() << endl;
+	return cout;
 }
 
 int main()
@@ -112,6 +123,9 @@ int main()
 
 	cout << "Saldo (poupanca1): " << poupanca1.getSaldo() << endl;
 	cout << "Saldo (poupanca2): " << poupanca2.getSaldo() << endl;
+
+	// print de uma conta
+	cout << poupanca2;
 
 	cout << "Total de contas: " << Banco::Conta::getTotalContas() << endl;
 

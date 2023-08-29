@@ -11,6 +11,7 @@ namespace Individuo {
 
 	public:
 		Pessoa(std::string nome, Cpf cpf);
+		std::string getNome() const;
 
 	private:
 		void validarNome();
