@@ -73,7 +73,8 @@ int main()
 	RH::Caixa caixa = RH::Caixa(
 		"Adriano",
 		Individuo::Cpf("000.111.222-00"),
-		3200
+		3200,
+		DiaDaSemana::Terca
 	);
 
 	cout << "Funcionário: " << caixa.getNome() << ", bônus: " << caixa.bonificacao() << endl;
@@ -83,6 +84,7 @@ int main()
 		"Ana S",
 		Individuo::Cpf("000.777.222-00"),
 		13500,
+		DiaDaSemana::Sabado,
 		"senha4"
 	);
 

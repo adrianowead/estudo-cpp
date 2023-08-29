@@ -1,7 +1,7 @@
 #include "Caixa.hpp"
 
-RH::Caixa::Caixa(std::string nome, Individuo::Cpf cpf, double salario):
-	Funcionario(nome, cpf, salario)
+RH::Caixa::Caixa(std::string nome, Individuo::Cpf cpf, double salario, DiaDaSemana diaDoPagamento):
+	Funcionario(nome, cpf, salario, diaDoPagamento)
 {
 	//
 }
