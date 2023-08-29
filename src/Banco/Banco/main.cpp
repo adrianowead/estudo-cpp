@@ -25,6 +25,11 @@ void fazLogin(const Login::Autenticavel& alguem, string senha)
 	}
 }
 
+void testarOperatorEmOutroEscopo(Banco::Conta& conta)
+{
+	conta += 90;
+}
+
 int main()
 {
 	Banco::ContaPoupanca poupanca1 = Banco::ContaPoupanca(
@@ -51,6 +56,10 @@ int main()
 
 	// depositando através de operador
 	(Banco::Conta&) corrente1 += 90;
+
+	// repetindo a operação com operator
+	// mas em outro escopo
+	testarOperatorEmOutroEscopo(corrente1);
 
 	realizaSaque(corrente1, 10);
 
