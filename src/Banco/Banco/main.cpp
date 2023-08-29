@@ -27,7 +27,7 @@ void fazLogin(const Login::Autenticavel& alguem, string senha)
 
 int main()
 {
-	Banco::ContaPoupanca conta = Banco::ContaPoupanca(
+	Banco::ContaPoupanca poupanca1 = Banco::ContaPoupanca(
 		"12345",
 		Individuo::Titular(
 			Individuo::Cpf("123.456.789-10"),
@@ -35,12 +35,12 @@ int main()
 			"senha1"
 		)
 	);
-	conta.depositar(1000);
-	realizaSaque(conta, 10);
+	poupanca1.depositar(1000);
+	realizaSaque(poupanca1, 10);
 
-	cout << "Saldo (Poupança): " << conta.getSaldo() << endl;
+	cout << "Saldo (poupanca1): " << poupanca1.getSaldo() << endl;
 
-	Banco::ContaCorrente conta2 = Banco::ContaCorrente(
+	Banco::ContaCorrente corrente1 = Banco::ContaCorrente(
 		"22222",
 		Individuo::Titular(
 			Individuo::Cpf("134.444.5555-10"),
@@ -50,13 +50,13 @@ int main()
 	);
 
 	// depositando através de operador
-	conta2 += 90;
+	(Banco::Conta&) corrente1 += 90;
 
-	realizaSaque(conta2, 10);
+	realizaSaque(corrente1, 10);
 
-	cout << "Saldo (Corrente): " << conta2.getSaldo() << endl;
+	cout << "Saldo (corrente1): " << corrente1.getSaldo() << endl;
 
-	Banco::ContaCorrente conta3 = Banco::ContaCorrente("990",
+	Banco::ContaCorrente corrente2 = Banco::ContaCorrente("990",
 		Individuo::Titular(
 			Individuo::Cpf("555.222.111-00"),
 			"Ana P", 
@@ -64,10 +64,40 @@ int main()
 		)
 	);
 
-	conta2.transferePara(conta3, 10);
+	corrente1.transferePara(corrente2, 10);
 
-	cout << "Saldo (Corrente): " << conta2.getSaldo() << endl;
-	cout << "Saldo (Conta Nova): " << conta3.getSaldo() << endl;
+	cout << "Saldo (corrente1): " << corrente1.getSaldo() << endl;
+	cout << "Saldo (corrente2): " << corrente2.getSaldo() << endl;
+
+	Banco::ContaCorrente corrente3 = Banco::ContaCorrente("991",
+		Individuo::Titular(
+			Individuo::Cpf("555.222.888-00"),
+			"Beatriz H",
+			"senha4"
+		)
+	);
+
+	// a corrente3 irá receber todo o saldo de corrente2
+	// que por sua vez será zerado
+	corrente3 += corrente2;
+
+	cout << "Saldo (corrente2): " << corrente2.getSaldo() << endl;
+	cout << "Saldo (corrente3): " << corrente3.getSaldo() << endl;
+
+	Banco::ContaPoupanca poupanca2 = Banco::ContaPoupanca("991",
+		Individuo::Titular(
+			Individuo::Cpf("555.222.888-99"),
+			"BJulia A",
+			"senha5"
+		)
+	);
+
+	// a poupanca2 irá receber todo o saldo de poupanca1
+	// que por sua vez será zerado
+	poupanca2 += poupanca1;
+
+	cout << "Saldo (poupanca1): " << poupanca1.getSaldo() << endl;
+	cout << "Saldo (poupanca2): " << poupanca2.getSaldo() << endl;
 
 	cout << "Total de contas: " << Banco::Conta::getTotalContas() << endl;
 

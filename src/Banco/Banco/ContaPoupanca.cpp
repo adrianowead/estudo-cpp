@@ -19,3 +19,20 @@ double Banco::ContaPoupanca::getTaxaDeSaque() const
 {
 	return 0.03;
 }
+
+// recebe todo o saldo da conta de origem
+void Banco::ContaPoupanca::operator+=(ContaPoupanca& contaOrigem)
+{
+	// definindo o valor da taxa de saque, para isentar o cliente da taxa
+	double saldoAtual = contaOrigem.getSaldo();
+	double custoTaxa = saldoAtual * contaOrigem.getTaxaDeSaque();
+
+	// depositar a taxa
+	contaOrigem.depositar(custoTaxa);
+
+	// sacar tudo
+	contaOrigem.sacar(saldoAtual);
+
+	// creditar na conta atual
+	this->depositar(saldoAtual);
+}
