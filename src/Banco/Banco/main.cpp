@@ -10,9 +10,13 @@
 
 using namespace std;
 
-void realizaSaque(Banco::Conta& conta, float valor)
+void realizaSaque(Banco::Conta& conta, const double valor)
 {
-	conta.sacar(valor);
+	auto resultado = conta.sacar(valor);
+
+	if (resultado.first == Banco::Conta::ResultadoSaque::Sucesso) {
+		cout << "Tentativa de saque, novo saldo: " << resultado.second << endl;
+	}
 }
 
 void fazLogin(const Login::Autenticavel& alguem, const string senha)

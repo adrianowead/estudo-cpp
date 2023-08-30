@@ -7,12 +7,12 @@ Banco::ContaCorrente::ContaCorrente(std::string conta, Individuo::Titular titula
 	Conta::validarTaxaDeSaque();
 }
 
-void Banco::ContaCorrente::sacar(double valor)
+std::pair<Banco::Conta::ResultadoSaque, double> Banco::ContaCorrente::sacar(const double valor)
 {
 	std::cout << "Sacando " << valor << ", de uma conta Corrente" << std::endl;
 
 	// repassando para a implementação padrão da classe pai
-	Conta::sacar(valor);
+	return Conta::sacar(valor);
 }
 
 double Banco::ContaCorrente::getTaxaDeSaque() const
@@ -22,8 +22,14 @@ double Banco::ContaCorrente::getTaxaDeSaque() const
 
 void Banco::ContaCorrente::transferePara(Conta& destino, double valor)
 {
-	this->sacar(valor);
-	destino.depositar(valor);
+	auto resultado = this->sacar(valor).first;
+	
+	if (resultado == Banco::Conta::ResultadoSaque::Sucesso) {
+		destino.depositar(valor);
+	}
+	else {
+		std::cout << "Falha ao mover fundos de uma conta para outra, verifique o saldo." << std::endl;
+	}
 }
 
 // recebe todo o saldo da conta de origem

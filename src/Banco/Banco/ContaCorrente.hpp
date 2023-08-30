@@ -6,7 +6,7 @@ namespace Banco {
 	{
 	public:
 		ContaCorrente(std::string conta, Individuo::Titular titular);
-		void sacar(double valor) override;
+		std::pair<ResultadoSaque, double> sacar(const double valor) override;
 		double getTaxaDeSaque() const override;
 		void transferePara(Conta& destino, double valor);
 		void operator += (ContaCorrente& contaOrigem);

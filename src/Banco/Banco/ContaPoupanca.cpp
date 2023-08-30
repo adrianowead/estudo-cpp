@@ -7,12 +7,12 @@ Banco::ContaPoupanca::ContaPoupanca(std::string conta, Individuo::Titular titula
 	Conta::validarTaxaDeSaque();
 }
 
-void Banco::ContaPoupanca::sacar(double valor)
+std::pair<Banco::Conta::ResultadoSaque, double> Banco::ContaPoupanca::sacar(const double valor)
 {
 	std::cout << "Sacando " << valor << ", de uma conta Poupança" << std::endl;
 
 	// repassando para a implementação padrão da classe pai
-	Conta::sacar(valor);
+	return Conta::sacar(valor);
 }
 
 double Banco::ContaPoupanca::getTaxaDeSaque() const

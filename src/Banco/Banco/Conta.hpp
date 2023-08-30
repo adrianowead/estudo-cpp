@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <utility>
 #include "Titular.hpp"
 
 namespace Banco {
@@ -17,6 +18,14 @@ namespace Banco {
 		double saldo;
 
 	public:
+		enum class ResultadoSaque : unsigned char
+		{
+			Sucesso = 0,
+			ValorNegativo = 1,
+			SaldoInsuficiente = 2
+		};
+
+	public:
 		// construtor
 		Conta(std::string conta, Individuo::Titular titular);
 
@@ -28,7 +37,7 @@ namespace Banco {
 		// evitando vazamento de memória
 		virtual ~Conta();
 
-		virtual void sacar(double valor); // virtual pode ser sobrescrito nas classes filhas
+		virtual std::pair<ResultadoSaque, double> sacar(const double valor); // virtual pode ser sobrescrito nas classes filhas
 		void depositar(double valor);
 
 		// outilizando a sobrecarga de operadores

@@ -24,23 +24,25 @@ void Banco::Conta::operator+=(double valor)
 	this->depositar(valor);
 }
 
-void Banco::Conta::sacar(double valor)
+std::pair<Banco::Conta::ResultadoSaque, double> Banco::Conta::sacar(const double valor)
 {
 	if (valor < 1) {
 		std::cout << "O valor a sacar deve ser igual ou maior do que 1.00." << std::endl;
-		return;
+		return std::make_pair(Banco::Conta::ResultadoSaque::ValorNegativo, this->saldo);
 	}
 
 	double valorDoSaque = valor + (getTaxaDeSaque() * valor);
 
 	if (valorDoSaque > this->saldo) {
 		std::cout << "Saldo insuficiente." << std::endl;
-		return;
+		return std::make_pair(Banco::Conta::ResultadoSaque::SaldoInsuficiente, this->saldo);
 	}
 
 	std::cout << "Taxa: " << getTaxaDeSaque() << std::endl;
 
 	this->saldo -= valorDoSaque;
+
+	return std::make_pair(Banco::Conta::ResultadoSaque::Sucesso, this->saldo);
 }
 
 void Banco::Conta::depositar(double valor)
