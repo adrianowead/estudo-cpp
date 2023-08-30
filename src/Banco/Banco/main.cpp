@@ -12,10 +12,10 @@ using namespace std;
 
 void realizaSaque(Banco::Conta& conta, const double valor)
 {
-	auto resultado = conta.sacar(valor);
+	std::variant<Banco::Conta::ResultadoSaque, double> resultado = conta.sacar(valor);
 
-	if (resultado.first == Banco::Conta::ResultadoSaque::Sucesso) {
-		cout << "Tentativa de saque, novo saldo: " << resultado.second << endl;
+	if (auto saldo = std::get_if<double>(&resultado)) {
+		cout << "Tentativa de saque, novo saldo: " << *saldo << endl;
 	}
 }
 

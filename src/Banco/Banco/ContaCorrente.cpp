@@ -7,7 +7,7 @@ Banco::ContaCorrente::ContaCorrente(std::string conta, Individuo::Titular titula
 	Conta::validarTaxaDeSaque();
 }
 
-std::pair<Banco::Conta::ResultadoSaque, double> Banco::ContaCorrente::sacar(const double valor)
+std::variant<Banco::Conta::ResultadoSaque, double> Banco::ContaCorrente::sacar(const double valor)
 {
 	std::cout << "Sacando " << valor << ", de uma conta Corrente" << std::endl;
 
@@ -22,9 +22,10 @@ double Banco::ContaCorrente::getTaxaDeSaque() const
 
 void Banco::ContaCorrente::transferePara(Conta& destino, double valor)
 {
-	auto resultado = this->sacar(valor).first;
+	std::variant<Banco::Conta::ResultadoSaque, double> resultado = this->sacar(valor);
 	
-	if (resultado == Banco::Conta::ResultadoSaque::Sucesso) {
+	// no caso verificando se é o segundo tipo (inicia em 0), ou seja, double
+	if (resultado.index() == 1) {
 		destino.depositar(valor);
 	}
 	else {

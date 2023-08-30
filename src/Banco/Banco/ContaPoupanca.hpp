@@ -8,7 +8,7 @@ namespace Banco {
 	{
 	public:
 		ContaPoupanca(std::string conta, Individuo::Titular titular);
-		std::pair<ResultadoSaque, double> sacar(const double valor) override; // override permite reescrita do método
+		std::variant<ResultadoSaque, double> sacar(const double valor) override; // override permite reescrita do método
 		double getTaxaDeSaque() const override;
 		void operator += (ContaPoupanca& contaOrigem);
 	};

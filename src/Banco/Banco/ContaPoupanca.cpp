@@ -7,7 +7,7 @@ Banco::ContaPoupanca::ContaPoupanca(std::string conta, Individuo::Titular titula
 	Conta::validarTaxaDeSaque();
 }
 
-std::pair<Banco::Conta::ResultadoSaque, double> Banco::ContaPoupanca::sacar(const double valor)
+std::variant<Banco::Conta::ResultadoSaque, double> Banco::ContaPoupanca::sacar(const double valor)
 {
 	std::cout << "Sacando " << valor << ", de uma conta Poupança" << std::endl;
 
