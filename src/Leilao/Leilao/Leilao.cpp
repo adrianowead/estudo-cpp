@@ -12,5 +12,7 @@ const std::vector<Lance>& Leilao::recuperaLances() const
 
 void Leilao::recebeLance(const Lance& lance)
 {
-    lances.push_back(lance);
+    if (lances.size() == 0 || lances.back().getNome() != lance.getNome()) {
+        lances.push_back(lance);
+    }
 }

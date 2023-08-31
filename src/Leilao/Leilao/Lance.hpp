@@ -10,6 +10,7 @@ private:
 public:
     Lance(Usuario usuario, float valor);
     float recuperaValor() const;
+    std::string getNome() const;
 };
 
 #endif /* Lance_hpp */
