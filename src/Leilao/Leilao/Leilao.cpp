@@ -27,5 +27,5 @@ std::string Leilao::ultimoUsuario() const
         return this->lances.back().getNome();
     }
 
-    return;
+    return "";
 }
