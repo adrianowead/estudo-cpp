@@ -34,9 +34,11 @@ Leilao emOrdemDecrescente()
 	return leilao;
 }
 
-TEST_CASE("Deve recuperar maior lance de leilão em ordem crescente") {
+TEST_CASE("Deve recuperar maior lance de leilão") {
 	// Arrange - Given
-	Leilao leilao = emOrdemCrescente();
+
+	// generate roda o teste varias vezes, uma para cada conjunto de dados
+	Leilao leilao = GENERATE(emOrdemCrescente(), emOrdemDecrescente());
 
 	Avaliador leiloeiro;
 
@@ -49,9 +51,11 @@ TEST_CASE("Deve recuperar maior lance de leilão em ordem crescente") {
 	REQUIRE(valorEsperado == leiloeiro.recuperaMaiorValor());
 }
 
-TEST_CASE("Deve recuperar menor lance de leilão em ordem decrescente") {
+TEST_CASE("Deve recuperar menor lance de leilão") {
 	// Arrange - Given
-	Leilao leilao = emOrdemDecrescente();
+
+	// generate roda o teste varias vezes, uma para cada conjunto de dados
+	Leilao leilao = GENERATE(emOrdemCrescente(), emOrdemDecrescente());
 
 	Avaliador leiloeiro;
 
