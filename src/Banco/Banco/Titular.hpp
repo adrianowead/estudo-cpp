@@ -1,20 +1,12 @@
 #include <string>
 #include "Cpf.hpp"
+#include "Pessoa.hpp"
+#include "Autenticavel.hpp"
 
-namespace Banco {
-	class Titular
+namespace Individuo {
+	class Titular final: public Individuo::Pessoa, public Login::Autenticavel
 	{
-	private:
-		std::string nome;
-		Cpf cpf;
-
 	public:
-		Titular(Cpf cpf, std::string nome);
-
-		const std::string getNome();
-		const std::string getCpf();
-
-	private:
-		void validaNomeTitular();
+		Titular(Individuo::Cpf cpf, std::string nome, std::string senha);
 	};
 }

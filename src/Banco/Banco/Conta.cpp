@@ -3,7 +3,7 @@
 
 int Banco::Conta::numeroDeContas = 0; // contador global
 
-Banco::Conta::Conta(std::string conta, Titular titular) :
+Banco::Conta::Conta(std::string conta, Individuo::Titular titular) :
 	conta(conta),
 	titular(titular),
 	saldo(0)
@@ -18,49 +18,64 @@ Banco::Conta::~Conta()
 	numeroDeContas--;
 }
 
-void Banco::Conta::sacar(float valor)
+// redefinindo o comportamento do operador += neste objeto
+void Banco::Conta::operator+=(double valor)
+{
+	this->depositar(valor);
+}
+
+bool Banco::Conta::operator < (Conta& outra)
+{
+	return this->getSaldo() < outra.saldo;
+}
+
+std::variant<Banco::Conta::ResultadoSaque, double> Banco::Conta::sacar(const double valor)
 {
 	if (valor < 1) {
 		std::cout << "O valor a sacar deve ser igual ou maior do que 1.00." << std::endl;
-		return;
+		return Banco::Conta::ResultadoSaque::ValorNegativo;
 	}
 
-	if (valor > saldo) {
+	double valorDoSaque = valor + (getTaxaDeSaque() * valor);
+
+	if (valorDoSaque > this->saldo) {
 		std::cout << "Saldo insuficiente." << std::endl;
-		return;
+		return Banco::Conta::ResultadoSaque::SaldoInsuficiente;
 	}
 
-	saldo -= valor;
+	std::cout << "Taxa: " << getTaxaDeSaque() << std::endl;
+
+	this->saldo -= valorDoSaque;
+
+	return this->saldo;
 }
 
-void Banco::Conta::depositar(float valor)
+void Banco::Conta::depositar(double valor)
 {
 	if (valor < 1) {
 		std::cout << "O valor a ser depositado deve ser igual ou maior do que 1.00." << std::endl;
 		return;
 	}
 
-	saldo += valor;
+	this->saldo += valor;
 }
 
-const float Banco::Conta::getSaldo()
+double Banco::Conta::getSaldo() const
 {
-	return saldo;
+	return this->saldo;
 }
 
-const std::string Banco::Conta::getNumero()
+void Banco::Conta::validarTaxaDeSaque()
+{
+	if (getTaxaDeSaque() < 0) {
+		std::cout << "A Taxa de saque não pode ser negativa." << std::endl;
+		return;
+	}
+}
+
+std::string Banco::Conta::getNumero() const
 {
 	return this->conta;
-}
-
-const std::string Banco::Conta::getCpf()
-{
-	return this->titular.getCpf();
-}
-
-const std::string Banco::Conta::getNome()
-{
-	return this->titular.getNome();
 }
 
 int Banco::Conta::getTotalContas()

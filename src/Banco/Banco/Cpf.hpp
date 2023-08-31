@@ -1,8 +1,8 @@
 #pragma once
 #include <string>
 
-namespace Banco {
-	class Cpf
+namespace Individuo {
+	class Cpf final
 	{
 	private:
 		std::string numero;
@@ -11,7 +11,7 @@ namespace Banco {
 
 	public:
 		Cpf(std::string cpf);
-		const std::string getCpf();
+		std::string getCpf() const;
 	};
 }
 
