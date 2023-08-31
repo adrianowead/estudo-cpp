@@ -10,10 +10,20 @@ void Avaliador::avalia(Leilao leilao)
 		{
 			this->maiorValor = lance.recuperaValor();
 		}
+		
+		if (lance.recuperaValor() < this->menorValor)
+		{
+			this->menorValor = lance.recuperaValor();
+		}
 	}
 }
 
 float Avaliador::recuperaMaiorValor() const
 {
 	return this->maiorValor;
+}
+
+float Avaliador::recuperaMenorValor() const
+{
+	return this->menorValor;
 }
