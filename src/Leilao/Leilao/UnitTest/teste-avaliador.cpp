@@ -34,55 +34,55 @@ Leilao emOrdemDecrescente()
 	return leilao;
 }
 
-TEST_CASE("Deve recuperar maior lance de leilão") {
-	// Arrange - Given
+TEST_CASE("Avaliador")
+{
+	SECTION("Com Generator")
+	{
+		// Arrange - Given
 
-	// generate roda o teste varias vezes, uma para cada conjunto de dados
-	Leilao leilao = GENERATE(emOrdemCrescente(), emOrdemDecrescente());
+		// generate roda o teste varias vezes, uma para cada conjunto de dados
+		Leilao leilao = GENERATE(emOrdemCrescente(), emOrdemDecrescente());
+		Avaliador leiloeiro;
 
-	Avaliador leiloeiro;
+		SECTION("Deve recuperar maior lance de leilão")
+		{
+			// Act - When
+			leiloeiro.avalia(leilao);
 
-	// Act - When
-	leiloeiro.avalia(leilao);
+			// Assert - Then
+			float valorEsperado = 5300;
 
-	// Assert - Then
-	float valorEsperado = 5300;
+			REQUIRE(valorEsperado == leiloeiro.recuperaMaiorValor());
+		}
 
-	REQUIRE(valorEsperado == leiloeiro.recuperaMaiorValor());
-}
+		SECTION("Deve recuperar menor lance de leilão")
+		{
+			// Act - When
+			leiloeiro.avalia(leilao);
 
-TEST_CASE("Deve recuperar menor lance de leilão") {
-	// Arrange - Given
+			// Assert - Then
+			float valorEsperado = 1000;
 
-	// generate roda o teste varias vezes, uma para cada conjunto de dados
-	Leilao leilao = GENERATE(emOrdemCrescente(), emOrdemDecrescente());
+			REQUIRE(valorEsperado == leiloeiro.recuperaMenorValor());
+		}
+	}
 
-	Avaliador leiloeiro;
+	SECTION("Deve recuperar os 3 maiores lances")
+	{
+		// Arrange - Given
+		Leilao leilao = emOrdemCrescente();
+		Avaliador leiloeiro;
 
-	// Act - When
-	leiloeiro.avalia(leilao);
+		// Act - When
+		leiloeiro.avalia(leilao);
 
-	// Assert - Then
-	float valorEsperado = 1000;
+		// Assert - Then
+		float valorEsperado = 3;
+		std::vector<Lance> maiores3Lances = leiloeiro.get3MaioresLances();
 
-	REQUIRE(valorEsperado == leiloeiro.recuperaMenorValor());
-}
-
-TEST_CASE("Deve recuperar os 3 maiores lances") {
-	// Arrange - Given
-	Leilao leilao = emOrdemCrescente();
-
-	Avaliador leiloeiro;
-
-	// Act - When
-	leiloeiro.avalia(leilao);
-
-	// Assert - Then
-	float valorEsperado = 3;
-	std::vector<Lance> maiores3Lances = leiloeiro.get3MaioresLances();
-
-	REQUIRE(valorEsperado == maiores3Lances.size());
-	REQUIRE(5300 == maiores3Lances[0].recuperaValor());
-	REQUIRE(4010 == maiores3Lances[1].recuperaValor());
-	REQUIRE(2000 == maiores3Lances[2].recuperaValor());
+		REQUIRE(valorEsperado == maiores3Lances.size());
+		REQUIRE(5300 == maiores3Lances[0].recuperaValor());
+		REQUIRE(4010 == maiores3Lances[1].recuperaValor());
+		REQUIRE(2000 == maiores3Lances[2].recuperaValor());
+	}
 }
