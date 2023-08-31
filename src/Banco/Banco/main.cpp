@@ -45,6 +45,13 @@ ostream& Banco::operator<<(ostream& cout, const Banco::Conta& conta)
 	return cout;
 }
 
+// definição de template
+template<typename TipoCustomizado>
+TipoCustomizado menor(const TipoCustomizado a, const TipoCustomizado b)
+{
+	return a < b ? a : b;
+}
+
 int main()
 {
 	Banco::ContaPoupanca poupanca1 = Banco::ContaPoupanca(
@@ -157,6 +164,17 @@ int main()
 
 	fazLogin(gerente, "senha1");
 	fazLogin(gerente, "senha4");
+
+	// verificando a menor conta
+	cout << "Verificando a menor conta:" << endl;
+	cout << menor<Banco::Conta&>(poupanca1, corrente1);
+
+	// utilizando a função de template para qualquer outro tipo
+	cout << "Verificando menor double:" << endl;
+	cout << menor<double>(1.3, 1.52) << endl;
+
+	cout << "Verificando menor inteiro:" << endl;
+	cout << menor<int>(10, 11) << endl;
 
 	return 0;
 }

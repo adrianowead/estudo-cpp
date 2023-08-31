@@ -24,6 +24,11 @@ void Banco::Conta::operator+=(double valor)
 	this->depositar(valor);
 }
 
+bool Banco::Conta::operator < (Conta& outra)
+{
+	return this->getSaldo() < outra.saldo;
+}
+
 std::variant<Banco::Conta::ResultadoSaque, double> Banco::Conta::sacar(const double valor)
 {
 	if (valor < 1) {

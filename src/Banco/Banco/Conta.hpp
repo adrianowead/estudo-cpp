@@ -42,6 +42,7 @@ namespace Banco {
 
 		// outilizando a sobrecarga de operadores
 		void operator += (double valor);
+		bool operator < (Conta& outra);
 
 		double getSaldo() const;
 		std::string getNumero() const;
