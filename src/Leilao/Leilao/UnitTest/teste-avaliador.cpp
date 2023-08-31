@@ -36,13 +36,16 @@ Leilao emOrdemDecrescente()
 
 TEST_CASE("Avaliador")
 {
-	SECTION("Com Generator")
+	// Arrange - Given
+	Avaliador leiloeiro;
+
+	SECTION("Leilões ordenados")
 	{
 		// Arrange - Given
 
 		// generate roda o teste varias vezes, uma para cada conjunto de dados
 		Leilao leilao = GENERATE(emOrdemCrescente(), emOrdemDecrescente());
-		Avaliador leiloeiro;
+		
 
 		SECTION("Deve recuperar maior lance de leilão")
 		{
@@ -71,7 +74,6 @@ TEST_CASE("Avaliador")
 	{
 		// Arrange - Given
 		Leilao leilao = emOrdemCrescente();
-		Avaliador leiloeiro;
 
 		// Act - When
 		leiloeiro.avalia(leilao);

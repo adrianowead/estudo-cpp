@@ -1,5 +1,11 @@
 #include "Avaliador.hpp"
 #include <algorithm>
+#include <iostream>
+
+Avaliador::Avaliador()
+{
+	std::cout << "Criando um novo avaliador." << std::endl;
+}
 
 bool Avaliador::ordenaLances(const Lance& lance1, const Lance& lance2)
 {

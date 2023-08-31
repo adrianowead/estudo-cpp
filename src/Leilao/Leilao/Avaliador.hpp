@@ -10,6 +10,7 @@ private:
 
 	static bool ordenaLances(const Lance&, const Lance&);
 public:
+	Avaliador();
 	void avalia(Leilao leilao);
 	float recuperaMaiorValor() const;
 	float recuperaMenorValor() const;
