@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="UnitTest">
+      <UniqueIdentifier>{9b1ec6c8-b0c7-4416-8486-99746747c36a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Lance.cpp">
@@ -27,6 +30,9 @@
     <ClCompile Include="Avaliador.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
+    <ClCompile Include="UnitTest\teste-avaliador.cpp">
+      <Filter>UnitTest</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Lance.hpp">
@@ -40,6 +46,9 @@
     </ClInclude>
     <ClInclude Include="Avaliador.hpp">
       <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="UnitTest\Catch.hpp">
+      <Filter>UnitTest</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
