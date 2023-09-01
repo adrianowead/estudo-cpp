@@ -42,6 +42,9 @@
     <ClCompile Include="UnitTest\teste-usuario.cpp">
       <Filter>UnitTest</Filter>
     </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Lance.hpp">
