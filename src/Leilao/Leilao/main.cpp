@@ -20,7 +20,7 @@ void ExibeTexto(std::string_view texto)
 }
 
 // teste de dia 3, compartilhando ponteiro
-void ExibeNome(std::unique_ptr<Usuario> usuario)
+void ExibeNome(std::shared_ptr<Usuario> usuario)
 {
 	std::cout << usuario->recuperaNome() << std::endl;
 }
@@ -70,7 +70,7 @@ int main()
 	// delete usuario;
 
 	// smart pointer
-	std::unique_ptr<Usuario> usuario(new Usuario("Adriano"));
+	std::unique_ptr<Usuario> usuario = std::make_unique<Usuario>("Adriano");
 
 	std::cout << usuario->recuperaNome() << std::endl;
 
@@ -78,6 +78,11 @@ int main()
 	// passado como referência ou algo assim
 	// o código abaixo daria erro
 	// ExibeNome(usuario);
+
+	// abaixo tem a abordagem de ponteiro que pode ser compartilhado
+	// os argumentos são usados diretamente no construtor do tipo informado
+	std::shared_ptr<Usuario> usuario2 = std::make_shared<Usuario>("Adriano");
+	ExibeNome(usuario2);
 
 
 	return 0;
