@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include <string_view>
+#include <memory>
+#include <Usuario.hpp>
 
 // sobrescrever o operador new
 void* ::operator new(size_t bytes)
@@ -15,6 +17,12 @@ void* ::operator new(size_t bytes)
 void ExibeTexto(std::string_view texto)
 {
 	std::cout << texto << std::endl;
+}
+
+// teste de dia 3, compartilhando ponteiro
+void ExibeNome(std::unique_ptr<Usuario> usuario)
+{
+	std::cout << usuario->recuperaNome() << std::endl;
 }
 
 int main()
@@ -50,6 +58,26 @@ int main()
 
 	// testando a dica de função otimizada
 	ExibeTexto("Um texto qualquer literal, que não está na heap");
+
+
+
+
+	// 3ª dica: Quando necessário alocar objeto diretamente na heap
+	// evitar o uso de new, e consequentemente evitar ter que usar o delete
+
+	// Usuario* usuario = new Usuario("Adriano");
+	// std::cout << usuario->recuperaNome() << std::endl;
+	// delete usuario;
+
+	// smart pointer
+	std::unique_ptr<Usuario> usuario(new Usuario("Adriano"));
+
+	std::cout << usuario->recuperaNome() << std::endl;
+
+	// mas no caso acima, um unique_ptr não pode ser compatilhado
+	// passado como referência ou algo assim
+	// o código abaixo daria erro
+	// ExibeNome(usuario);
 
 
 	return 0;
