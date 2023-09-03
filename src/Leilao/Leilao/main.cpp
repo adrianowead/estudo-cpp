@@ -25,7 +25,7 @@ void ExibeNome(std::shared_ptr<Usuario> usuario)
 	std::cout << usuario->recuperaNome() << std::endl;
 }
 
-int main()
+int main2()
 {
 	// 1ª dica: se não for necessário modificar, verificar tamanho
 	// ou manipular a string, evite o uso da classe std::string
@@ -84,6 +84,78 @@ int main()
 	std::shared_ptr<Usuario> usuario2 = std::make_shared<Usuario>("Adriano");
 	ExibeNome(usuario2);
 
+
+	return 0;
+}
+
+class String
+{
+private:
+	char* data;
+	size_t size;
+public:
+	String(const char* string)
+	{
+		std::cout << "String criada" << std::endl;
+
+		size = strlen(string);
+		data = new char[size];
+		memcpy(data, string, size);
+	}
+
+	// copy constructor
+	String(const String& outraString)
+	{
+		std::cout << "String copiada" << std::endl;
+
+		size = strlen(outraString.data);
+		data = new char[size];
+		memcpy(data, outraString.data, size);
+	}
+
+	// move constructor
+	String(String&& outraString)
+	{
+		std::cout << "String movida" << std::endl;
+
+		size = outraString.size;
+		data = outraString.data;
+
+		// invalidar a origem movida
+		// evita erro ao destruir o objeto original referenciado
+		outraString.size = 0;
+		outraString.data = nullptr;
+	}
+
+	// destructor
+	~String()
+	{
+		delete data;
+	}
+};
+
+class User
+{
+private:
+	String nome;
+public:
+	User(const String& nome) :
+		nome(nome)
+	{
+		//
+	}
+
+	// r-value
+	User(String&& nome) :
+		nome((String&&) nome)
+	{
+		//
+	}
+};
+
+int main()
+{
+	User(String("Adriano"));
 
 	return 0;
 }
